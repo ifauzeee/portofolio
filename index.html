@@ -823,6 +823,28 @@
             overflow-y: auto;
             position: relative;
         }
+
+        /* Add or update these styles */
+        .projects-link {
+            margin-top: 2rem;
+        }
+
+        .projects-link a {
+            background: transparent;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .projects-link a:hover {
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .projects-link {
+                margin-top: 2rem;
+                padding: 0 1rem;
+            }
+        }
     </style>
 </head>
 <body class="scroll-smooth">
@@ -1164,7 +1186,7 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-12 scroll-reveal projects-link" data-effect="fade-up">
+            <div class="text-center mt-12 scroll-reveal" data-effect="fade-up">
                 <a href="https://www.linkedin.com/in/muhammad-ibnu-fauzi-66842a2a7/details/projects/" 
                    target="_blank" 
                    class="inline-flex items-center px-5 py-2.5 text-base text-white hover:text-red-500 transition-all duration-300 group hover-lift">
