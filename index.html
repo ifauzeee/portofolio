@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Muhammad Ibnu Fauzi - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -16,26 +16,33 @@
             background-color: #000000;
             color: #fff;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            touch-action: auto; /* Changed to allow default touch behavior */
         }
         
         .scroll-smooth {
             scroll-behavior: smooth;
         }
-
-        /* Hero Section */
         .hero-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
             align-items: center;
             min-height: 100vh;
-            padding: 2rem 4rem;
+            padding: 1rem 4rem;
             position: relative;
             background-color: #000000;
-            overflow: hidden;
         }
-
-        /* Gradient Text Animation */
+        .content-container {
+            z-index: 10;
+            max-width: 600px;
+            padding-right: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Vertically center content */
+            height: 100%;
+        }
         .name-gradient {
             background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF6347 100%);
             -webkit-background-clip: text;
@@ -49,8 +56,6 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
-        /* Tagline Underline Animation */
         .tagline {
             position: relative;
         }
@@ -63,25 +68,20 @@
             height: 3px;
             background: linear-gradient(to right, transparent, #FFD700, transparent);
             transform: scaleX(0);
-            transform-origin: left;
             transition: transform 0.5s ease;
         }
         .tagline:hover::after {
             transform: scaleX(1);
         }
-
-        /* Social Icons Animation */
         .social-icon {
-            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             color: rgba(255, 255, 255, 0.7);
+            touch-action: manipulation;
         }
         .social-icon:hover {
             color: #FFD700;
-            transform: translateY(-8px) scale(1.3) rotate(10deg);
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+            transform: translateY(-5px) scale(1.2);
         }
-
-        /* Marquee Animation */
         .marquee-container {
             width: 100vw;
             overflow: hidden;
@@ -91,303 +91,777 @@
         .marquee {
             display: inline-block;
             white-space: nowrap;
-            animation: marquee 25s linear infinite;
-            padding: 1.5rem 0;
+            animation: marquee 30s linear infinite;
+            padding: 1rem 0;
             background-color: #000000;
+            will-change: transform;
         }
         .marquee-item {
             display: inline-block;
-            margin: 0 2.5rem;
+            margin: 0 1.5rem;
             color: rgba(255, 255, 255, 0.7);
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.1rem;
+            font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            transition: all 0.4s ease;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
         }
         .marquee-item:hover {
             color: #FF0000;
-            transform: scale(1.15) rotate(2deg);
-            text-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+            transform: scale(1.1);
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
         }
         @keyframes marquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
-
-        /* Contact Section */
         .contact-title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 6rem;
+            font-size: 5rem;
             font-weight: 700;
             line-height: 1.1;
             color: #fff;
             text-align: center;
-            margin-bottom: 1.5rem;
-        }
-        @media (max-width: 768px) {
-            .contact-title {
-                font-size: 3.5rem;
-            }
-            .highlight-text {
-                font-size: 4rem;
-            }
+            margin-bottom: 1rem;
         }
         .highlight-text {
             font-weight: 700;
-            font-size: 7rem;
+            font-size: 6rem;
             background: linear-gradient(to right, #FF0000, #DC0000);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             display: inline-block;
             position: relative;
-            animation: pulseText 3s ease-in-out infinite;
         }
-        @keyframes pulseText {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        /* Contact Button Animation */
         .contact-button {
-            background: linear-gradient(45deg, #FFD700, #FFA500);
-            color: #000;
-            padding: 1.25rem 2.5rem;
+            background: linear-gradient(45deg, #FF0000, #FF6347);
+            color: #fff;
+            padding: 1rem 2rem;
             border-radius: 50px;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-weight: 600;
             text-transform: uppercase;
-            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            letter-spacing: 1px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
             border: none;
             cursor: pointer;
-            margin-top: 2.5rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
             z-index: 1;
         }
         .contact-button::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: all 0.8s ease;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            opacity: 0;
             z-index: -1;
+            transition: opacity 0.4s ease;
         }
-        .contact-button:hover::before {
-            left: 100%;
+        .contact-button::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.3);
+            top: -100%;
+            left: -100%;
+            transform: rotate(45deg);
+            transition: all 0.7s;
         }
         .contact-button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 12px 24px rgba(255, 215, 0, 0.4);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+            color: #fff;
+        }
+        .contact-button:hover::before {
+            opacity: 1;
+        }
+        .contact-button:hover::after {
+            left: 200%;
         }
         .contact-button:active {
-            transform: translateY(-2px) scale(0.98);
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(255, 0, 0, 0.3);
         }
-
-        /* Download Link Animation */
         .download-link {
             position: relative;
             color: rgba(255, 255, 255, 0.7);
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
         }
         .download-link::after {
             content: '';
             position: absolute;
-            bottom: -3px;
+            bottom: -2px;
             left: 0;
             width: 0;
-            height: 2px;
+            height: 1px;
             background-color: #FFD700;
-            transition: width 0.4s ease;
+            transition: width 0.3s ease;
         }
         .download-link:hover {
             color: #FFD700;
-            transform: translateX(5px);
         }
         .download-link:hover::after {
             width: 100%;
         }
-
-        /* Geometric Animation */
         .geometric-animation {
             position: relative;
-            width: 400px;
-            height: 400px;
+            width: 350px;
+            height: 350px;
             display: flex;
             justify-content: center;
             align-items: center;
             margin: 0 auto;
-            perspective: 1000px;
+            will-change: transform;
         }
         .geometric-shape {
             position: absolute;
             border: 2px solid rgba(255, 0, 0, 0.3);
-            border-radius: 12px;
-            animation: rotate3D 20s linear infinite;
-            transition: all 0.6s ease;
-            transform-style: preserve-3d;
+            border-radius: 10px;
+            animation: rotate 20s linear infinite;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .geometric-shape:hover {
-            filter: brightness(1.8);
-            transform: scale(1.15) rotateY(15deg);
-            border-color: rgba(255, 0, 0, 0.8);
+            filter: brightness(1.5);
+            transform: scale(1.1) rotate(10deg);
         }
         .shape-1 {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             border-color: rgba(255, 0, 0, 0.3);
             animation-direction: normal;
         }
         .shape-2 {
-            width: 250px;
-            height: 250px;
+            width: 230px;
+            height: 230px;
             border-color: rgba(255, 0, 0, 0.2);
             animation-direction: reverse;
             animation-duration: 15s;
         }
         .shape-3 {
-            width: 300px;
-            height: 300px;
+            width: 280px;
+            height: 280px;
             border-color: rgba(255, 0, 0, 0.1);
             animation-duration: 25s;
         }
-        @keyframes rotate3D {
-            from { transform: rotateY(0deg) rotateX(0deg); }
-            to { transform: rotateY(360deg) rotateX(360deg); }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
         .center-circle {
-            width: 150px;
-            height: 150px;
-            background: linear-gradient(45deg, rgba(255, 0, 0, 0.2), rgba(255, 0, 0, 0.1));
+            width: 130px;
+            height: 130px;
+            background: linear-gradient(45deg, rgba(255,0,0,0.1), rgba(255,0,0,0.05));
             border-radius: 50%;
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
-            animation: pulse 2.5s ease-in-out infinite;
+            animation: pulse 2s ease-in-out infinite;
         }
         @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
         .red-glow {
             position: absolute;
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(255, 0, 0, 0.3) 0%, transparent 70%);
-            filter: blur(10px);
-            animation: glow 3.5s ease-in-out infinite;
+            background: radial-gradient(circle, rgba(255,0,0,0.2) 0%, transparent 70%);
+            filter: blur(8px);
+            animation: glow 4s ease-in-out infinite;
         }
         @keyframes glow {
-            0%, 100% { opacity: 0.4; transform: scale(1); }
-            50% { opacity: 0.9; transform: scale(1.15); }
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
         }
-
-        /* Responsive Adjustments */
         @media (max-width: 1024px) {
             .hero-section {
                 grid-template-columns: 1fr;
+                padding: 1rem 1.5rem;
+                align-items: center;
             }
             .geometric-animation {
-                margin: 3rem auto;
+                margin: 1rem auto;
+                transform: scale(0.7);
+            }
+            .content-container {
+                padding-right: 0;
+                max-width: 100%;
+                margin-top: 0;
+            }
+        }
+        @media (max-width: 768px) {
+            /* General mobile adjustments */
+            body {
+                font-size: 16px;
+                line-height: 1.5;
+                overflow-x: hidden;
+            }
+
+            /* Better section spacing */
+            section {
+                padding: 3rem 1rem;
+                min-height: auto;
+            }
+
+            /* Hero section adjustments */
+            .hero-section {
+                padding: 2rem 1rem;
+                text-align: center;
+            }
+
+            .name-gradient {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+
+            /* Contact section */
+            .contact-title {
+                font-size: 2.5rem;
+                line-height: 1.3;
+            }
+
+            .highlight-text {
+                font-size: 3rem;
+            }
+
+            /* Education timeline mobile optimization */
+            .education-timeline {
+                padding-left: 1.5rem;
+                margin-left: 0;
+            }
+
+            .education-item {
+                margin-bottom: 2rem;
+                padding: 1.5rem;
+                background: rgba(255, 0, 0, 0.05);
+                border-radius: 0.75rem;
+            }
+
+            .education-year {
+                position: relative;
+                top: 0;
+                margin-bottom: 1rem;
+                display: inline-block;
+            }
+
+            /* Skills section */
+            .grid {
+                gap: 1.5rem;
+            }
+
+            /* Certificates grid */
+            .grid-cols-1 {
+                gap: 2rem;
+            }
+
+            /* Better touch targets */
+            .social-icon,
+            button,
+            a {
+                min-height: 44px;
+                min-width: 44px;
+                padding: 0.75rem;
+                margin: 0.25rem;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Improved button styles */
+            .contact-button {
+                width: 100%;
+                max-width: 300px;
+                margin: 1.5rem auto;
+                padding: 1rem;
+                font-size: 1rem;
+            }
+
+            /* Better list spacing */
+            ul.space-y-1_5 {
+                margin-bottom: 2rem;
+            }
+
+            /* Improved image handling */
+            img {
+                max-height: 200px;
+                width: 100%;
+                object-fit: cover;
+                border-radius: 0.5rem;
+            }
+
+            /* Footer adjustments */
+            footer {
+                padding: 2rem 1rem;
+            }
+
+            /* Marquee adjustments */
+            .marquee-container {
+                padding: 1rem 0;
+            }
+
+            .marquee-item {
+                font-size: 0.9rem;
+                margin: 0 1rem;
+            }
+
+            /* Skills and projects cards */
+            .scroll-reveal[data-effect="scale"] {
+                width: 100%;
+            }
+
+            .flex.space-x-5 {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .social-icon {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 44px;
+                min-width: 44px;
+                padding: 0.75rem;
+                margin: 0.25rem;
+            }
+
+            /* Center container on mobile */
+            .content-container {
+                text-align: center;
+                padding: 0;
+            }
+
+            .projects-link {
+                margin-top: 2rem;
+                padding: 0 1rem;
+            }
+
+            .projects-link a {
+                width: 100%;
+                justify-content: center;
+                padding: 1rem;
+                background-color: rgba(255, 0, 0, 0.1);
+                border-radius: 0.5rem;
+                border: 1px solid rgba(255, 0, 0, 0.2);
+            }
+
+            .projects-link a:hover {
+                background-color: rgba(255, 0, 0, 0.2);
             }
         }
 
-        /* Scroll Animation Classes */
-        .animate-scroll {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        /* Additional improvements for very small screens */
+        @media (max-width: 375px) {
+            .name-gradient {
+                font-size: 2rem;
+            }
+
+            .contact-title {
+                font-size: 2rem;
+            }
+
+            .highlight-text {
+                font-size: 2.5rem;
+            }
         }
-        .animate-scroll.active {
+        .animate-fade-up {
+            animation: fadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+        .scroll-reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
-        .animate-scroll[data-effect="scale"] {
-            transform: scale(0.9);
+        .scroll-reveal[data-effect="scale"] {
+            transform: scale(0.95) translateY(20px);
         }
-        .animate-scroll[data-effect="fade-left"] {
-            transform: translateX(-50px);
+        .scroll-reveal[data-effect="scale"].active {
+            transform: scale(1) translateY(0);
         }
-        .animate-scroll[data-effect="fade-right"] {
-            transform: translateX(50px);
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 3rem;
         }
-        .animate-scroll.active[data-effect="scale"] {
-            transform: scale(1);
+        section {
+            opacity: 0;
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity;
         }
-        .animate-scroll.active[data-effect="fade-left"],
-        .animate-scroll.active[data-effect="fade-right"] {
-            transform: translateX(0);
+        section.active {
+            opacity: 1;
         }
-
-        /* Parallax Background */
-        .parallax-bg {
-            position: relative;
-            overflow: hidden;
-        }
-        .parallax-bg::before {
-            content: '';
-            position: absolute;
+        .scroll-progress {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #FF0000, #FFD700);
+            transform-origin: 0 50%;
+            transform: scaleX(0);
+            z-index: 1000;
+            transition: transform 0.1s linear;
+        }
+        /* Education Section Specific Styles */
+        .education-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0.75rem;
+            top: 0;
             height: 100%;
-            background: radial-gradient(circle, rgba(255, 0, 0, 0.1) 0%, transparent 70%);
-            z-index: -1;
-            transform: translateY(0);
-            transition: transform 0.1s ease;
+            width: 2px;
+            background: linear-gradient(to bottom, #FF0000, transparent);
+        }
+        .education-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        .education-item::before {
+            content: '';
+            position: absolute;
+            left: -2.25rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: #FF0000;
+            border-radius: 50%;
+        }
+        @media (min-width: 768px) {
+            .education-timeline {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+                position: relative;
+                padding: 2rem 0;
+            }
+
+            .education-timeline::before {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: 0;
+                height: 100%;
+                width: 3px;
+                background: linear-gradient(180deg, 
+                    rgba(255,0,0,1) 0%,
+                    rgba(255,0,0,0.8) 50%,
+                    rgba(255,0,0,0) 100%);
+                transform: translateX(-50%);
+            }
+
+            .education-item {
+                position: relative;
+                padding: 2rem;
+                background: rgba(255, 0, 0, 0.05);
+                border: 1px solid rgba(255, 0, 0, 0.1);
+                border-radius: 1rem;
+                transition: all 0.3s ease;
+            }
+
+            .education-item:hover {
+                transform: translateY(-5px);
+                background: rgba(255, 0, 0, 0.08);
+                box-shadow: 0 10px 20px rgba(255, 0, 0, 0.1);
+            }
+
+            .education-item::before {
+                content: '';
+                position: absolute;
+                width: 16px;
+                height: 16px;
+                background: #FF0000;
+                border-radius: 50%;
+                top: 50%;
+                box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+            }
+
+            .education-item::after {
+                content: '';
+                position: absolute;
+                width: 2rem;
+                height: 2px;
+                background: linear-gradient(90deg, 
+                    rgba(255,0,0,0.8) 0%,
+                    rgba(255,0,0,0) 100%);
+                top: 50%;
+            }
+
+            /* Left side items */
+            .education-item:nth-child(odd) {
+                grid-column: 1;
+                text-align: right;
+            }
+
+            .education-item:nth-child(odd)::before {
+                right: -42px;
+                transform: translate(50%, -50%);
+            }
+
+            .education-item:nth-child(odd)::after {
+                right: -20px;
+            }
+
+            /* Right side items */
+            .education-item:nth-child(even) {
+                grid-column: 2;
+                text-align: left;
+            }
+
+            .education-item:nth-child(even)::before {
+                left: -42px;
+                transform: translate(-50%, -50%);
+            }
+
+            .education-item:nth-child(even)::after {
+                left: -20px;
+                transform: rotate(180deg);
+            }
+
+            .education-content {
+                position: relative;
+            }
+
+            .education-content h3 {
+                font-size: 1.5rem;
+                margin-bottom: 0.5rem;
+                background: linear-gradient(45deg, #FF0000, #FF6347);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+
+            .education-content p:first-of-type {
+                font-size: 1rem;
+                color: #888;
+                margin-bottom: 0.75rem;
+            }
+
+            .education-content p:last-of-type {
+                font-size: 1rem;
+                line-height: 1.6;
+                color: #fff;
+            }
+
+            /* Year badges */
+            .education-year {
+                position: absolute;
+                top: -30px;
+                background: linear-gradient(45deg, #FF0000, #FF6347);
+                padding: 0.5rem 1rem;
+                border-radius: 2rem;
+                font-weight: bold;
+                color: white;
+                font-size: 0.9rem;
+                box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
+            }
+
+            .education-item:nth-child(odd) .education-year {
+                right: 0;
+            }
+
+            .education-item:nth-child(even) .education-year {
+                left: 0;
+            }
+        }
+        @media (max-width: 768px) {
+            body {
+                -webkit-overflow-scrolling: auto; /* Default scrolling behavior */
+                overscroll-behavior: none;
+                overscroll-behavior-y: auto;
+            }
+            section {
+                padding: 2rem 1rem;
+                min-height: auto;
+            }
+            p, li {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+            .social-icon,
+            button,
+            a {
+                min-height: 44px;
+                min-width: 44px;
+                padding: 0.75rem;
+                margin: 0.25rem;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .contact-button {
+                width: 100%;
+                max-width: 300px;
+                margin: 1.5rem auto;
+                padding: 1rem;
+                font-size: 1rem;
+            }
+            .marquee-item {
+                font-size: 0.9rem;
+                margin: 0 1rem;
+            }
+            .education-item {
+                padding-left: 2rem;
+                margin-bottom: 1.5rem;
+            }
+            .education-item::before {
+                left: -0.5rem;
+            }
+        }
+        @media (hover: hover) {
+            .hover-lift {
+                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .hover-lift:hover {
+                transform: translateY(-5px);
+            }
+        }
+        /* Add or update these styles in your existing <style> section */
+        @media (max-width: 768px) {
+            /* Move thank you section down */
+            .thank-you-section {
+                margin-top: 4rem;  /* Add more top margin */
+                padding-bottom: 6rem;  /* Add more bottom padding */
+            }
+
+            /* Adjust spacing for footer to not overlap */
+            footer {
+                margin-top: 2rem;
+                padding: 2rem 1rem;
+            }
+
+            /* Reduce title size on mobile */
+            .thank-you-section .contact-title {
+                font-size: 2rem;
+                line-height: 1.3;
+                margin-bottom: 1.5rem;
+            }
+
+            /* Adjust paragraph spacing */
+            .thank-you-section p {
+                margin-top: 1.5rem;
+                padding: 0 1rem;
+            }
         }
 
-        /* Card Hover Animation */
-        .certificate-card {
-            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-        .certificate-card:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(255, 0, 0, 0.3);
+        @media (max-width: 768px) {
+            .projects-link {
+                margin-top: 2rem;
+                padding: 0 1rem;
+            }
+
+            .projects-link a {
+                width: 100%;
+                justify-content: center;
+                padding: 1rem;
+                background-color: rgba(255, 0, 0, 0.1);
+                border-radius: 0.5rem;
+                border: 1px solid rgba(255, 0, 0, 0.2);
+            }
+
+            .projects-link a:hover {
+                background-color: rgba(255, 0, 0, 0.2);
+            }
         }
 
-        /* Staggered Animation for Lists */
-        .stagger-item {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s ease;
+        /* Update the projects link section */
+        .text-center.mt-12.scroll-reveal.projects-link {
+            margin-top: 2rem;
+            padding: 0 1rem;
         }
-        .stagger-item.active {
-            opacity: 1;
-            transform: translateY(0);
+
+        .text-center.mt-12.scroll-reveal.projects-link a {
+            width: 100%;
+            justify-content: center;
+            padding: 1rem;
+            background-color: rgba(255, 0, 0, 0.1);
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255, 0, 0, 0.2);
+        }
+
+        .text-center.mt-12.scroll-reveal.projects-link a:hover {
+            background-color: rgba(255, 0, 0, 0.2);
+        }
+
+        /* Update existing scroll behavior */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 3rem;
+        }
+
+        /* Add this to force initial scroll position */
+        html, body {
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Force scroll to top on page load */
+        body {
+            overflow-y: auto;
+            position: relative;
         }
     </style>
 </head>
 <body class="scroll-smooth">
+    <div class="scroll-progress"></div>
     <!-- Hero Section -->
-    <section id="home" class="hero-section parallax-bg">
-        <div class="content-container animate-scroll" data-effect="fade-left">
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
+    <section id="home" class="hero-section scroll-reveal" data-effect="fade-up">
+        <div class="content-container animate-fade-up">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 scroll-reveal" data-effect="fade-up">
                 <span class="name-gradient">Muhammad</span> <br>
                 <span class="name-gradient">Ibnu Fauzi</span>
             </h1>
-            <h2 class="text-xl md:text-2xl lg:text-3xl font-light mb-8 tagline inline-block">
+            <h2 class="text-lg md:text-xl lg:text-2xl font-light mb-6 tagline inline-block scroll-reveal" data-effect="fade-up">
                 Digital Developer & Data Enthusiast
             </h2>
-            <p class="text-lg md:text-xl mb-8 max-w-lg opacity-90 animate-scroll" data-effect="fade-up">
+            <p class="text-base md:text-lg mb-6 max-w-lg opacity-90 scroll-reveal" data-effect="fade-up">
                 Developer with skills in full-stack web development, data science, and digital content creation. I turn ideas into interactive, data-driven experiences using Python, JavaScript, and modern web technologies.
             </p>
-            <div class="flex space-x-6 mb-12">
-                <a href="https://www.linkedin.com/in/muhammad-ibnu-fauzi-66842a2a7" target="_blank" class="social-icon text-2xl"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.instagram.com/_mhmmdibnu_/" target="_blank" class="social-icon text-2xl"><i class="fab fa-instagram"></i></a>
-                <a href="https://t.me/ifauzeee" target="_blank" class="social-icon text-2xl"><i class="fab fa-telegram"></i></a>
-                <a href="mailto:ifauze343@gmail.com" class="social-icon text-2xl"><i class="fas fa-envelope"></i></a>
+            <div class="flex space-x-5 mb-10 scroll-reveal justify-center" data-effect="fade-up">
+                <a href="https://www.linkedin.com/in/muhammad-ibnu-fauzi-66842a2a7" target="_blank" class="social-icon text-xl hover-lift">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/_mhmmdibnu_/" target="_blank" class="social-icon text-xl hover-lift">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://t.me/ifauzeee" target="_blank" class="social-icon text-xl hover-lift">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="mailto:ifauze343@gmail.com" class="social-icon text-xl hover-lift">
+                    <i class="fas fa-envelope"></i>
+                </a>
             </div>
-            <a href="#contact" class="contact-button inline-block">Let's Connect</a>
+            <a href="#contact" class="contact-button inline-flex items-center justify-center group scroll-reveal" data-effect="fade-up">
+                <span class="mr-2">Let's Connect</span>
+                <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform duration-300"></i>
+            </a>
         </div>
-        <div class="flex items-center justify-center">
-            <div class="geometric-animation animate-scroll" data-effect="scale">
+        <!-- Only show geometric animation on desktop -->
+        <div class="flex items-center justify-center scroll-reveal hidden md:flex" data-effect="scale">
+            <div class="geometric-animation">
                 <div class="geometric-shape shape-1"></div>
                 <div class="geometric-shape shape-2"></div>
                 <div class="geometric-shape shape-3"></div>
@@ -399,7 +873,7 @@
     </section>
 
     <!-- Marquee Section -->
-    <section class="marquee-container py-8 parallax-bg">
+    <section class="marquee-container py-6 scroll-reveal" data-effect="fade-up">
         <div class="marquee">
             <span class="marquee-item">Create</span>
             <span class="marquee-item">/</span>
@@ -419,71 +893,73 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="min-h-screen flex flex-col justify-center items-center text-center px-4 py-16 parallax-bg">
+    <section id="contact" class="min-h-[80vh] flex flex-col justify-center items-center text-center px-4 py-12 scroll-reveal" data-effect="fade-up">
         <div class="max-w-4xl mx-auto">
-            <h2 class="contact-title animate-scroll" data-effect="fade-up">
+            <h2 class="contact-title">
                 Let's create something <br>
-                <span class="highlight-text">MEANINGFUL</span> 
+                <span class="highlight-text pulse">MEANINGFUL</span> 
                 <span>TOGETHER</span>
             </h2>
-            <div class="flex justify-center space-x-6 mt-8 animate-scroll" data-effect="scale">
-                <a href="https://www.linkedin.com/in/muhammad-ibnu-fauzi-66842a2a7" target="_blank" class="social-icon text-2xl"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.instagram.com/_mhmmdibnu_/" target="_blank" class="social-icon text-2xl"><i class="fab fa-instagram"></i></a>
-                <a href="https://t.me/ifauzeee" target="_blank" class="social-icon text-2xl"><i class="fab fa-telegram"></i></a>
-                <a href="mailto:ifauze343@gmail.com" class="social-icon text-2xl"><i class="fas fa-envelope"></i></a>
+            <div class="flex justify-center space-x-5 mt-6 scroll-reveal" data-effect="fade-up">
+                <a href="https://www.linkedin.com/in/muhammad-ibnu-fauzi-66842a2a7" target="_blank" class="social-icon text-xl hover-lift">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/_mhmmdibnu_/" target="_blank" class="social-icon text-xl hover-lift">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://t.me/ifauzeee" target="_blank" class="social-icon text-xl hover-lift">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="mailto:ifauze343@gmail.com" class="social-icon text-xl hover-lift">
+                    <i class="fas fa-envelope"></i>
+                </a>
             </div>
-            <a href="#home" class="download-link block mt-6 animate-scroll" data-effect="fade-up">
+            <a href="#home" class="download-link block mt-5 scroll-reveal" data-effect="fade-up">
                 Kembali ke Awal <i class="fas fa-arrow-up ml-2"></i>
             </a>
         </div>
     </section>
 
     <!-- Education Section -->
-    <section class="min-h-screen flex flex-col justify-center items-center px-4 py-16 bg-black parallax-bg">
+    <section class="min-h-[80vh] flex flex-col justify-center items-center px-4 py-12 bg-black scroll-reveal" data-effect="fade-up">
         <div class="max-w-4xl w-full">
-            <h2 class="text-5xl md:text-6xl font-bold mb-16 text-center animate-scroll" data-effect="fade-up">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
                 <span class="name-gradient">Education Journey</span>
             </h2>
-            <div class="space-y-12 relative">
-                <div class="absolute left-0 md:left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-red-500 to-transparent"></div>
-                <div class="flex flex-col md:flex-row group animate-scroll" data-effect="fade-left">
-                    <div class="flex-1 md:text-right md:pr-8 pb-8 md:pb-0">
-                        <h3 class="text-xl font-bold text-red-500 stagger-item">POLITEKNIK NEGERI JAKARTA</h3>
-                        <p class="text-gray-400 stagger-item">2023 - Present</p>
-                    </div>
-                    <div class="w-3 h-3 bg-red-500 rounded-full mx-auto md:mx-0 relative z-10"></div>
-                    <div class="flex-1 md:pl-8 pt-4 md:pt-0">
-                        <p class="text-white stagger-item">Pursuing higher education and exploring new horizons</p>
+            <div class="education-timeline">
+                <div class="education-item scroll-reveal" data-effect="scale">
+                    <span class="education-year">2023 - Present</span>
+                    <div class="education-content">
+                        <h3>POLITEKNIK NEGERI JAKARTA</h3>
+                        <p>Higher Education</p>
+                        <p>Pursuing a degree in Information Technology, focusing on software development and data science while exploring new technological horizons.</p>
                     </div>
                 </div>
-                <div class="flex flex-col md:flex-row group animate-scroll" data-effect="fade-right">
-                    <div class="flex-1 md:text-right md:pr-8 pb-8 md:pb-0">
-                        <h3 class="text-xl font-bold text-red-500 stagger-item">SMAN 02 CILEUNGSI</h3>
-                        <p class="text-gray-400 stagger-item">2020 - 2023</p>
-                    </div>
-                    <div class="w-3 h-3 bg-red-500 rounded-full mx-auto md:mx-0 relative z-10"></div>
-                    <div class="flex-1 md:pl-8 pt-4 md:pt-0">
-                        <p class="text-white stagger-item">Developed strong foundation in sciences and critical thinking</p>
-                    </div>
-                </div>
-                <div class="flex flex-col md:flex-row group animate-scroll" data-effect="fade-left">
-                    <div class="flex-1 md:text-right md:pr-8 pb-8 md:pb-0">
-                        <h3 class="text-xl font-bold text-red-500 stagger-item">SMPN 04 CILEUNGSI</h3>
-                        <p class="text-gray-400 stagger-item">2018 - 2020</p>
-                    </div>
-                    <div class="w-3 h-3 bg-red-500 rounded-full mx-auto md:mx-0 relative z-10"></div>
-                    <div class="flex-1 md:pl-8 pt-4 md:pt-0">
-                        <p class="text-white stagger-item">Built core academic competencies and social skills</p>
+                
+                <div class="education-item scroll-reveal" data-effect="scale">
+                    <span class="education-year">2020 - 2023</span>
+                    <div class="education-content">
+                        <h3>SMAN 02 CILEUNGSI</h3>
+                        <p>Senior High School</p>
+                        <p>Developed strong foundations in sciences and critical thinking, with focus on mathematics and computer science.</p>
                     </div>
                 </div>
-                <div class="flex flex-col md:flex-row group animate-scroll" data-effect="fade-right">
-                    <div class="flex-1 md:text-right md:pr-8">
-                        <h3 class="text-xl font-bold text-red-500 stagger-item">SDN NYALINGUNG</h3>
-                        <p class="text-gray-400 stagger-item">2011 - 2017</p>
+                
+                <div class="education-item scroll-reveal" data-effect="scale">
+                    <span class="education-year">2018 - 2020</span>
+                    <div class="education-content">
+                        <h3>SMPN 04 CILEUNGSI</h3>
+                        <p>Junior High School</p>
+                        <p>Built core academic competencies and social skills while participating in various technology-related activities.</p>
                     </div>
-                    <div class="w-3 h-3 bg-red-500 rounded-full mx-auto md:mx-0 relative z-10"></div>
-                    <div class="flex-1 md:pl-8 pt-4 md:pt-0">
-                        <p class="text-white stagger-item">Started my educational journey with fundamental learning</p>
+                </div>
+                
+                <div class="education-item scroll-reveal" data-effect="scale">
+                    <span class="education-year">2011 - 2017</span>
+                    <div class="education-content">
+                        <h3>SDN NYALINGUNG</h3>
+                        <p>Elementary School</p>
+                        <p>Started my educational journey with fundamental learning and discovered my passion for technology.</p>
                     </div>
                 </div>
             </div>
@@ -491,96 +967,96 @@
     </section>
 
     <!-- Certificates Section -->
-    <section class="min-h-screen flex flex-col justify-center items-center px-4 py-16 bg-black parallax-bg">
+    <section class="min-h-[80vh] flex flex-col justify-center items-center px-4 py-12 bg-black scroll-reveal" data-effect="fade-up">
         <div class="max-w-6xl w-full">
-            <h2 class="text-5xl md:text-6xl font-bold mb-16 text-center animate-scroll" data-effect="fade-up">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
                 <span class="name-gradient">My Certifications</span>
             </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="certificate-card animate-scroll" data-effect="scale">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="scroll-reveal hover-lift" data-effect="scale">
                     <img src="./My Certifications/Screenshot 2025-06-06 at 20-06-16 _certificate_muhammad-ibnu-fauzi-tik23-stu-pnj-ac-id_f0ab09fa-5bb0-4f7a-b3fe-fb1809f199f1_2.pdf.png"
                          onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250?text=Certificate';"
                          alt="IoT Certificate"
-                         class="w-full max-h-64 object-contain bg-gray-900 rounded-lg mb-4">
-                    <h3 class="text-xl font-bold text-red-500 mb-2 stagger-item">Introduction to IoT</h3>
-                    <p class="text-gray-400 mb-4 stagger-item">by Cisco</p>
-                    <a href="#" class="text-white hover:text-red-500 transition-colors duration-300 flex items-center stagger-item">
+                         class="w-full max-h-56 object-contain bg-gray-900 rounded-lg mb-3">
+                    <h3 class="text-lg font-bold text-red-500 mb-2">Introduction to IoT</h3>
+                    <p class="text-gray-400 text-sm mb-3">by Cisco</p>
+                    <a href="#" class="text-white hover:text-red-500 transition-colors duration-300 flex items-center text-sm">
                         View Certificate <i class="fas fa-external-link-alt ml-2"></i>
                     </a>
                 </div>
-                <div class="certificate-card animate-scroll" data-effect="scale">
+                <div class="scroll-reveal hover-lift" data-effect="scale">
                     <img src="./My Certifications/Screenshot 2025-06-06 at 20-12-21 Python_Essentials_1_certificate_muhammad-ibnu-fauzi-tik23-stu-pnj-ac-id_f0e9a51b-40ba-49bc-9eba-0bb5d40034a1.pdf.png"
                          onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250?text=Certificate';"
                          alt="Python Certificate"
-                         class="w-full max-h-64 object-contain bg-gray-900 rounded-lg mb-4">
-                    <h3 class="text-xl font-bold text-red-500 mb-2 stagger-item">Python Essentials 1</h3>
-                    <p class="text-gray-400 mb-4 stagger-item">by Cisco</p>
-                    <a href="#" class="text-white hover:text-red-500 transition-colors duration-300 flex items-center stagger-item">
+                         class="w-full max-h-56 object-contain bg-gray-900 rounded-lg mb-3">
+                    <h3 class="text-lg font-bold text-red-500 mb-2">Python Essentials 1</h3>
+                    <p class="text-gray-400 text-sm mb-3">by Cisco</p>
+                    <a href="#" class="text-white hover:text-red-500 transition-colors duration-300 flex items-center text-sm">
                         View Certificate <i class="fas fa-external-link-alt ml-2"></i>
                     </a>
                 </div>
-                <div class="certificate-card animate-scroll" data-effect="scale">
+                <div class="scroll-reveal hover-lift" data-effect="scale">
                     <img src="./My Certifications/Screenshot 2025-06-06 at 20-33-20 Profile freeCodeCamp.org.png"
                          onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250?text=Certificate';"
                          alt="Web Design Certificate"
-                         class="w-full max-h-64 object-contain bg-gray-900 rounded-lg mb-4">
-                    <h3 class="text-xl font-bold text-red-500 mb-2 stagger-item">Responsive Web Design</h3>
-                    <p class="text-gray-400 mb-4 stagger-item">by freeCodeCamp</p>
+                         class="w-full max-h-56 object-contain bg-gray-900 rounded-lg mb-3">
+                    <h3 class="text-lg font-bold text-red-500 mb-2">Responsive Web Design</h3>
+                    <p class="text-gray-400 text-sm mb-3">by freeCodeCamp</p>
                     <a href="https://www.freecodecamp.org/certification/fcc-c43ed584-9373-471e-ba26-fa7d2cf9f876/javascript-algorithms-and-data-structures-v8"
                        target="_blank"
-                       class="text-white hover:text-red-500 transition-colors duration-300 flex items-center stagger-item">
+                       class="text-white hover:text-red-500 transition-colors duration-300 flex items-center text-sm">
                         View Certificate <i class="fas fa-external-link-alt ml-2"></i>
                     </a>
                 </div>
-                <div class="certificate-card animate-scroll" data-effect="scale">
+                <div class="scroll-reveal hover-lift" data-effect="scale">
                     <img src="./My Certifications/Screenshot 2025-06-06 at 20-27-11 .png"
                          onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250?text=Certificate';"
                          alt="JavaScript Certificate"
-                         class="w-full max-h-64 object-contain bg-gray-900 rounded-lg mb-4">
-                    <h3 class="text-xl font-bold text-red-500 mb-2 stagger-item">JavaScript Algorithms and Data Structures</h3>
-                    <p class="text-gray-400 mb-4 stagger-item">by freeCodeCamp</p>
+                         class="w-full max-h-56 object-contain bg-gray-900 rounded-lg mb-3">
+                    <h3 class="text-lg font-bold text-red-500 mb-2">JavaScript Algorithms and Data Structures</h3>
+                    <p class="text-gray-400 text-sm mb-3">by freeCodeCamp</p>
                     <a href="https://www.freecodecamp.org/certification/fcc-c43ed584-9373-471e-ba26-fa7d2cf9f876/javascript-algorithms-and-data-structures-v8"
                        target="_blank"
-                       class="text-white hover:text-red-500 transition-colors duration-300 flex items-center stagger-item">
+                       class="text-white hover:text-red-500 transition-colors duration-300 flex items-center text-sm">
                         View Certificate <i class="fas fa-external-link-alt ml-2"></i>
                     </a>
                 </div>
-                <div class="certificate-card animate-scroll" data-effect="scale">
+                <div class="scroll-reveal hover-lift" data-effect="scale">
                     <img src="./My Certifications/image.png"
                          onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250?text=Certificate';"
                          alt="Data Visualization Certificate"
-                         class="w-full max-h-64 object-contain bg-gray-900 rounded-lg mb-4">
-                    <h3 class="text-xl font-bold text-red-500 mb-2 stagger-item">Data Visualization</h3>
-                    <p class="text-gray-400 mb-4 stagger-item">by freeCodeCamp</p>
+                         class="w-full max-h-56 object-contain bg-gray-900 rounded-lg mb-3">
+                    <h3 class="text-lg font-bold text-red-500 mb-2">Data Visualization</h3>
+                    <p class="text-gray-400 text-sm mb-3">by freeCodeCamp</p>
                     <a href="https://www.freecodecamp.org/certification/fcc-c43ed584-9373-471e-ba26-fa7d2cf9f876/data-visualization"
                        target="_blank"
-                       class="text-white hover:text-red-500 transition-colors duration-300 flex items-center stagger-item">
+                       class="text-white hover:text-red-500 transition-colors duration-300 flex items-center text-sm">
                         View Certificate <i class="fas fa-external-link-alt ml-2"></i>
                     </a>
                 </div>
-                <div class="certificate-card animate-scroll" data-effect="scale">
+                <div class="scroll-reveal hover-lift" data-effect="scale">
                     <img src="./My Certifications/1 (2).png"
                          onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250?text=Certificate';"
                          alt="Scientific Computing Certificate"
-                         class="w-full max-h-64 object-contain bg-gray-900 rounded-lg mb-4">
-                    <h3 class="text-xl font-bold text-red-500 mb-2 stagger-item">Scientific Computing with Python</h3>
-                    <p class="text-gray-400 mb-4 stagger-item">by freeCodeCamp</p>
+                         class="w-full max-h-56 object-contain bg-gray-900 rounded-lg mb-3">
+                    <h3 class="text-lg font-bold text-red-500 mb-2">Scientific Computing with Python</h3>
+                    <p class="text-gray-400 text-sm mb-3">by freeCodeCamp</p>
                     <a href="https://www.freecodecamp.org/fcc-c43ed584-9373-471e-ba26-fa7d2cf9f876"
                        target="_blank"
-                       class="text-white hover:text-red-500 transition-colors duration-300 flex items-center stagger-item">
+                       class="text-white hover:text-red-500 transition-colors duration-300 flex items-center text-sm">
                         View Certificate <i class="fas fa-external-link-alt ml-2"></i>
                     </a>
                 </div>
-                <div class="certificate-card animate-scroll" data-effect="scale">
+                <div class="scroll-reveal hover-lift" data-effect="scale">
                     <img src="./My Certifications/Screenshot 2025-06-06 at 20-42-02 Coursera 3TFXQKRRTYFJ.pdf.png"
                          onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250?text=Certificate';"
                          alt="WordPress Certificate"
-                         class="w-full max-h-64 object-contain bg-gray-900 rounded-lg mb-4">
-                    <h3 class="text-xl font-bold text-red-500 mb-2 stagger-item">Build a free website with WordPress</h3>
-                    <p class="text-gray-400 mb-4 stagger-item">by Coursera Project Network</p>
+                         class="w-full max-h-56 object-contain bg-gray-900 rounded-lg mb-3">
+                    <h3 class="text-lg font-bold text-red-500 mb-2">Build a free website with WordPress</h3>
+                    <p class="text-gray-400 text-sm mb-3">by Coursera Project Network</p>
                     <a href="https://coursera.org/share/f8c6e59d1b1aa9ac411ee8a03ea9c55b"
                        target="_blank"
-                       class="text-white hover:text-red-500 transition-colors duration-300 flex items-center stagger-item">
+                       class="text-white hover:text-red-500 transition-colors duration-300 flex items-center text-sm">
                         View Certificate <i class="fas fa-external-link-alt ml-2"></i>
                     </a>
                 </div>
@@ -589,71 +1065,71 @@
     </section>
 
     <!-- Skills Section -->
-    <section class="min-h-screen flex flex-col justify-center items-center px-4 py-16 bg-black parallax-bg">
+    <section class="min-h-[80vh] flex flex-col justify-center items-center px-4 py-12 bg-black scroll-reveal" data-effect="fade-up">
         <div class="max-w-6xl w-full">
-            <h2 class="text-5xl md:text-6xl font-bold mb-16 text-center animate-scroll" data-effect="fade-up">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
                 <span class="name-gradient">Technical Skills</span>
             </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="animate-scroll" data-effect="scale">
-                    <div class="flex items-center mb-4 stagger-item">
-                        <i class="fas fa-laptop-code text-2xl text-red-500 mr-3"></i>
-                        <h3 class="text-xl font-bold text-white">Programming & Software Development</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="scroll-reveal hover-lift" data-effect="scale">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-laptop-code text-xl text-red-500 mr-2"></i>
+                        <h3 class="text-lg font-bold text-white">Programming & Software Development</h3>
                     </div>
-                    <ul class="space-y-2 text-gray-400">
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">Python</li>
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">R Programming</li>
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">Scala</li>
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">JavaScript (ES6+)</li>
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">Object-Oriented Programming</li>
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">Functional Programming</li>
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">Algorithmic Thinking</li>
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">Design, Develop, and Debug Scripts</li>
+                    <ul class="space-y-1.5 text-gray-400 text-sm">
+                        <li class="hover:text-red-500 transition-colors duration-300">Python</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">R Programming</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Scala</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">JavaScript (ES6+)</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Object-Oriented Programming</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Functional Programming</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Algorithmic Thinking</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Design, Develop, and Debug Scripts</li>
                     </ul>
                 </div>
-                <div class="animate-scroll" data-effect="scale">
-                    <div class="flex items-center mb-4 stagger-item">
-                        <i class="fas fa-code text-2xl text-red-500 mr-3"></i>
-                        <h3 class="text-xl font-bold text-white">Web Development & Design</h3>
+                <div class="scroll-reveal hover-lift" data-effect="scale">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-code text-xl text-red-500 mr-2"></i>
+                        <h3 class="text-lg font-bold text-white">Web Development & Design</h3>
                     </div>
-                    <ul class="space-y-2 text-gray-400">
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">HTML5</li>
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">CSS3</li>
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">Flexbox & CSS Grid</li>
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">Responsive Web Design</li>
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">WordPress</li>
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">Mobile-First Design</li>
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">Accessibility (a11y)</li>
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">Content Management</li>
+                    <ul class="space-y-1.5 text-gray-400 text-sm">
+                        <li class="hover:text-red-500 transition-colors duration-300">HTML5</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">CSS3</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Flexbox & CSS Grid</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Responsive Web Design</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">WordPress</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Mobile-First Design</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Accessibility (a11y)</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Content Management</li>
                     </ul>
                 </div>
-                <div class="animate-scroll" data-effect="scale">
-                    <div class="flex items-center mb-4 stagger-item">
-                        <i class="fas fa-chart-line text-2xl text-red-500 mr-3"></i>
-                        <h3 class="text-xl font-bold text-white">Data Science & Visualization</h3>
+                <div class="scroll-reveal hover-lift" data-effect="scale">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-chart-line text-xl text-red-500 mr-2"></i>
+                        <h3 class="text-lg font-bold text-white">Data Science & Visualization</h3>
                     </div>
-                    <ul class="space-y-2 text-gray-400">
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">Data Science</li>
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">Data Visualization</li>
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">D3.js</li>
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">Statistics</li>
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">NumPy</li>
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">JSON & CSV Data Handling</li>
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">Chart Creation</li>
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">Scientific Computing</li>
+                    <ul class="space-y-1.5 text-gray-400 text-sm">
+                        <li class="hover:text-red-500 transition-colors duration-300">Data Science</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Data Visualization</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">D3.js</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Statistics</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">NumPy</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">JSON & CSV Data Handling</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Chart Creation</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Scientific Computing</li>
                     </ul>
                 </div>
-                <div class="animate-scroll" data-effect="scale">
-                    <div class="flex items-center mb-4 stagger-item">
-                        <i class="fas fa-microchip text-2xl text-red-500 mr-3"></i>
-                        <h3 class="text-xl font-bold text-white">Digital & Emerging Technologies</h3>
+                <div class="scroll-reveal hover-lift" data-effect="scale">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-microchip text-xl text-red-500 mr-2"></i>
+                        <h3 class="text-lg font-bold text-white">Digital & Emerging Technologies</h3>
                     </div>
-                    <ul class="space-y-2 text-gray-400">
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">Digital Transformation</li>
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">Internet of Things (IoT)</li>
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">Data Processing & Cleaning</li>
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">Interactive Visuals</li>
-                        <li class="stagger-item hover:text-red-500 transition-colors duration-300">PWID-B0159400</li>
+                    <ul class="space-y-1.5 text-gray-400 text-sm">
+                        <li class="hover:text-red-500 transition-colors duration-300">Digital Transformation</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Internet of Things (IoT)</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Data Processing & Cleaning</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Interactive Visuals</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">PWID-B0159400</li>
                     </ul>
                 </div>
             </div>
@@ -661,38 +1137,38 @@
     </section>
 
     <!-- Projects Section -->
-    <section class="min-h-screen flex flex-col justify-center items-center px-4 py-16 bg-black parallax-bg">
+    <section class="min-h-[80vh] flex flex-col justify-center items-center px-4 py-12 bg-black scroll-reveal" data-effect="fade-up">
         <div class="max-w-6xl w-full">
-            <h2 class="text-5xl md:text-6xl font-bold mb-16 text-center animate-scroll" data-effect="fade-up">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
                 <span class="name-gradient">My Projects</span>
             </h2>
-            <div class="max-w-4xl mx-auto animate-scroll" data-effect="scale">
-                <div class="space-y-6">
-                    <h3 class="text-3xl font-bold text-red-500 stagger-item">Website PPDB STM - Gotham City</h3>
-                    <p class="text-gray-300 text-xl leading-relaxed stagger-item">
+            <div class="max-w-4xl mx-auto scroll-reveal" data-effect="scale">
+                <div class="space-y-5">
+                    <h3 class="text-2xl font-bold text-red-500">Website PPDB STM - Gotham City</h3>
+                    <p class="text-gray-300 text-base leading-relaxed">
                         A comprehensive student registration website for STM Gotham City featuring modern design and intuitive user interface. This project showcases responsive design principles and seamless user experience across all devices.
                     </p>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300 stagger-item">HTML</span>
-                        <span class="px-4 py-2 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300 stagger-item">CSS</span>
-                        <span class="px-4 py-2 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300 stagger-item">PHP</span>
-                        <span class="px-4 py-2 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300 stagger-item">MySQL</span>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">HTML</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">CSS</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">PHP</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">MySQL</span>
                     </div>
-                    <div class="pt-4">
+                    <div class="pt-3">
                         <a href="https://stm-gotham.rf.gd/?i=1" 
                            target="_blank" 
-                           class="inline-flex items-center px-6 py-3 text-lg bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-300 group stagger-item">
+                           class="inline-flex items-center px-5 py-2.5 text-base bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-300 group hover-lift">
                             <span>Visit Live Site</span>
                             <i class="fas fa-external-link-alt ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-16 animate-scroll" data-effect="fade-up">
+            <div class="text-center mt-12 scroll-reveal projects-link" data-effect="fade-up">
                 <a href="https://www.linkedin.com/in/muhammad-ibnu-fauzi-66842a2a7/details/projects/" 
                    target="_blank" 
-                   class="inline-flex items-center px-6 py-3 text-white hover:text-red-500 transition-all duration-300 group stagger-item">
-                    <i class="fab fa-linkedin text-xl mr-2"></i>
+                   class="inline-flex items-center px-5 py-2.5 text-base text-white hover:text-red-500 transition-all duration-300 group hover-lift">
+                    <i class="fab fa-linkedin text-lg mr-2"></i>
                     <span>More projects on LinkedIn</span>
                     <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform duration-300"></i>
                 </a>
@@ -701,22 +1177,22 @@
     </section>
 
     <!-- Thank You Section -->
-    <section class="min-h-screen flex flex-col justify-center items-center text-center px-4 py-16 parallax-bg">
+    <section class="min-h-[80vh] flex flex-col justify-center items-center text-center px-4 py-12 scroll-reveal thank-you-section" data-effect="fade-up">
         <div class="max-w-4xl mx-auto">
-            <h2 class="contact-title animate-scroll" data-effect="fade-up">
+            <h2 class="contact-title">
                 Thank you for <br>
-                <span class="highlight-text">EXPLORING</span> 
+                <span class="highlight-text pulse">EXPLORING</span> 
                 <span>MY JOURNEY</span>
             </h2>
-            <p class="text-xl md:text-2xl text-gray-400 mt-8 animate-scroll" data-effect="fade-up">
+            <p class="text-base md:text-lg text-gray-400 mt-6 scroll-reveal" data-effect="fade-up">
                 Every pixel of this portfolio was crafted with passion and dedication
             </p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 text-center animate-scroll" data-effect="fade-up">
-        <p class="text-gray-400">© All rights reserved - Muhammad Ibnu Fauzi <span id="current-year"></span></p>
+    <footer class="py-6 text-center scroll-reveal" data-effect="fade-up">
+        <p class="text-gray-400 text-sm">© All rights reserved - Muhammad Ibnu Fauzi <span id="current-year"></span></p>
     </footer>
 
     <script>
@@ -724,56 +1200,58 @@
             // Set current year in footer
             document.getElementById('current-year').textContent = new Date().getFullYear();
 
-            // Scroll-triggered animations using Intersection Observer
+            // Scroll Progress Indicator
+            const scrollProgress = document.querySelector('.scroll-progress');
+            function updateScrollProgress() {
+                const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrolled = (window.scrollY / windowHeight) * 100;
+                scrollProgress.style.transform = `scaleX(${scrolled / 100})`;
+            }
+
+            // Smooth Scroll Reveal Animation with Intersection Observer
+            const revealElements = document.querySelectorAll('.scroll-reveal, section');
             const observerOptions = {
                 root: null,
-                rootMargin: '0px',
-                threshold: 0.1
+                threshold: 0.1,
+                rootMargin: '0px'
             };
 
-            const observer = new IntersectionObserver((entries, observer) => {
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
-                        // Stagger animation for child elements
-                        const staggerItems = entry.target.querySelectorAll('.stagger-item');
-                        staggerItems.forEach((item, index) => {
-                            setTimeout(() => {
-                                item.classList.add('active');
-                            }, index * 100);
-                        });
                     }
                 });
+                updateScrollProgress();
             }, observerOptions);
 
-            document.querySelectorAll('.animate-scroll').forEach(element => {
-                observer.observe(element);
-            });
+        revealElements.forEach(element => observer.observe(element));
 
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
+        // Remove custom touch handling to allow default scrolling
+        document.addEventListener('touchstart', () => {}, { passive: true });
+        document.addEventListener('touchmove', () => {}, { passive: true });
+        document.addEventListener('touchend', () => {}, { passive: true });
 
-            // Parallax effect on scroll
-            const parallaxElements = document.querySelectorAll('.parallax-bg');
-            window.addEventListener('scroll', () => {
-                parallaxElements.forEach(element => {
-                    const scrollPosition = window.pageYOffset;
-                    const speed = 0.2;
-                    element.style.transform = `translateY(${scrollPosition * speed}px)`;
-                });
-            });
+        // Prevent pinch zoom for better UX
+        document.addEventListener('gesturestart', (e) => {
+            e.preventDefault();
         });
-    </script>
+
+        // Pause marquee animation on hover
+        const marquee = document.querySelector('.marquee');
+        if (marquee) {
+            marquee.addEventListener('mouseenter', () => {
+                marquee.style.animationPlayState = 'paused';
+            });
+            marquee.addEventListener('mouseleave', () => {
+                marquee.style.animationPlayState = 'running';
+            });
+        }
+
+        // Initialize scroll progress on load and scroll
+        window.addEventListener('scroll', updateScrollProgress);
+        updateScrollProgress();
+    });
+</script>
 </body>
 </html>
