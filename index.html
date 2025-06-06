@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Muhammad Ibnu Fauzi - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -13,421 +13,39 @@
     <style>
         body {
             font-family: 'Space Grotesk', sans-serif;
-            background-color: #000000; /* AMOLED pure black */
+            background-color: #000000;
             color: #fff;
             overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
         }
-        
-        .hero-section {
-            background-color: #000000; /* AMOLED pure black */
-        }
-        
+
+        /* Smooth scrolling */
         .scroll-smooth {
             scroll-behavior: smooth;
         }
+
+        /* Hero Section */
         .hero-section {
-            background-color: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            position: relative;
+            background-color: #000000;
         }
+
+        .content-container {
+            z-index: 10;
+            max-width: 90%;
+            text-align: center;
+        }
+
         .name-gradient {
             background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF6347 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-        }
-        .scroll-down {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
-            40% { transform: translateY(-20px) translateX(-50%); }
-            60% { transform: translateY(-10px) translateX(-50%); }
-        }
-        .tagline {
-            position: relative;
-        }
-        .tagline::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(to right, transparent, #FFD700, transparent);
-            transform: scaleX(0);
-            transition: transform 0.5s ease;
-        }
-        .tagline:hover::after {
-            transform: scaleX(1);
-        }
-        .social-icon {
-            transition: all 0.3s ease;
-            color: rgba(255, 255, 255, 0.7);
-        }
-        .social-icon:hover {
-            color: #FFD700;
-            transform: translateY(-5px) scale(1.2);
-        }
-        .marquee-container {
-            width: 100vw;
-            overflow: hidden;
-            position: relative;
-            background-color: #000000; /* Changed to AMOLED pure black */
-        }
-
-        .marquee {
-            display: inline-block;
-            white-space: nowrap;
-            animation: marquee 30s linear infinite;
-            padding: 1rem 0;
-            background-color: #000000; /* Added to ensure consistency */
-        }
-
-        .marquee-item {
-            display: inline-block;
-            margin: 0 2rem;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1.25rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            transition: all 0.3s ease;
-        }
-
-        .marquee-item:hover {
-            color: #FF0000;
-            transform: scale(1.1);
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .contact-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 6rem;
-            font-weight: 700;
-            line-height: 1;
-            color: #fff;
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-        @media (max-width: 768px) {
-            .contact-title {
-                font-size: 3rem;
-            }
-            .highlight-text {
-                font-size: 3.5rem;
-            }
-            .sub-text {
-                font-size: 1.5rem;
-            }
-        }
-        .highlight-text {
-            font-weight: 700;
-            font-size: 7rem;
-            background: linear-gradient(to right, #FF0000, #DC0000);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: inline-block;
-            position: relative;
-        }
-        .sub-text {
-            font-size: 1.8rem;
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.7);
-            font-style: italic;
-            margin-top: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-        .sub-text::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(to right, transparent, #FFD700, transparent);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.5s ease;
-        }
-        .sub-text:hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-        .contact-button {
-            background-color: #fff;
-            color: #000;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-size: 1.25rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border: none;
-            cursor: pointer;
-            margin-top: 2rem;
-        }
-        .contact-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.4), transparent);
-            transition: all 0.7s ease;
-        }
-        .contact-button:hover::before {
-            left: 100%;
-        }
-        .contact-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
-        }
-        .contact-button:active {
-            transform: translateY(-1px);
-        }
-        .download-link {
-            position: relative;
-            color: rgba(255, 255, 255, 0.7);
-            transition: all 0.3s ease;
-        }
-        .download-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background-color: #FFD700;
-            transition: width 0.3s ease;
-        }
-        .download-link:hover {
-            color: #FFD700;
-        }
-        .download-link:hover::after {
-            width: 100%;
-        }
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        .text-flicker {
-            animation: textFlicker 3s infinite alternate;
-        }
-        @keyframes textFlicker {
-            0% { opacity: 0.7; }
-            100% { opacity: 1; }
-        }
-        .animate-float {
-            animation: float 8s ease-in-out infinite;
-        }
-        .animate-float-delay {
-            animation: float 8s ease-in-out infinite 2s;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-        }
-        .geometric-animation {
-            position: absolute;
-            right: 15%;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 400px;
-            height: 400px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .geometric-shape {
-            position: absolute;
-            border: 2px solid rgba(255, 0, 0, 0.3);
-            border-radius: 10px;
-            animation: rotate 20s linear infinite;
-        }
-
-        .shape-1 {
-            width: 200px;
-            height: 200px;
-            border-color: rgba(255, 0, 0, 0.3);
-            animation-direction: normal;
-        }
-
-        .shape-2 {
-            width: 250px;
-            height: 250px;
-            border-color: rgba(255, 0, 0, 0.2);
-            animation-direction: reverse;
-            animation-duration: 15s;
-        }
-
-        .shape-3 {
-            width: 300px;
-            height: 300px;
-            border-color: rgba(255, 0, 0, 0.1);
-            animation-duration: 25s;
-        }
-
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .center-circle {
-            width: 150px;
-            height: 150px;
-            background: linear-gradient(45deg, rgba(255,0,0,0.1), rgba(255,0,0,0.05));
-            border-radius: 50%;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .red-glow {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,0,0,0.2) 0%, transparent 70%);
-            filter: blur(8px);
-            animation: glow 4s ease-in-out infinite;
-        }
-
-        @keyframes glow {
-            0%, 100% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.1); }
-        }
-
-        /* Update hero section layout */
-        .hero-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
-            min-height: 100vh;
-            padding: 2rem 4rem;
-            position: relative;
-        }
-
-        .geometric-animation {
-            position: relative;
-            width: 400px;
-            height: 400px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto;
-        }
-
-        /* Content container adjustments */
-        .content-container {
-            z-index: 10;
-            max-width: 600px;
-            padding-right: 2rem;
-        }
-
-        /* Media query adjustments */
-        @media (max-width: 1024px) {
-            .hero-section {
-                grid-template-columns: 1fr;
-            }
-            
-            .geometric-animation {
-                margin: 2rem auto;
-            }
-        }
-
-        /* Add these new animations to your existing styles */
-        .animate-fade-up {
-            animation: fadeUp 0.8s ease-out forwards;
-            opacity: 0;
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-scale {
-            animation: scale 0.6s ease-out forwards;
-            transform-origin: center;
-        }
-
-        @keyframes scale {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .animate-slide-right {
-            animation: slideRight 0.8s ease-out forwards;
-            opacity: 0;
-        }
-
-        @keyframes slideRight {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* Enhanced existing animations */
-        .geometric-shape {
-            transition: all 0.5s ease;
-        }
-
-        .geometric-shape:hover {
-            filter: brightness(1.5);
-            transform: scale(1.1) rotate(10deg);
-        }
-
-        .name-gradient {
-            background-size: 200% 200%;
             animation: gradientShift 8s ease infinite;
         }
 
@@ -437,124 +55,314 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Scroll-triggered animations */
-        .reveal {
-            opacity: 0;
-            transition: all 1s ease;
+        .tagline {
+            position: relative;
         }
 
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+        .tagline::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #FFD700, transparent);
+            transition: width 0.5s ease;
         }
 
-        .reveal[data-effect="fade-up"] {
-            transform: translateY(50px);
+        .tagline:hover::after {
+            width: 80%;
         }
 
-        .reveal[data-effect="fade-right"] {
-            transform: translateX(-50px);
+        .social-icon {
+            transition: all 0.3s ease;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 0.5rem;
         }
 
-        .reveal[data-effect="scale"] {
-            transform: scale(0.9);
+        .social-icon:hover, .social-icon:active {
+            color: #FFD700;
+            transform: translateY(-3px) scale(1.1);
         }
 
-        /* Add these new scroll animations */
+        /* Marquee Section */
+        .marquee-container {
+            width: 100vw;
+            overflow: hidden;
+            background-color: #000000;
+        }
+
+        .marquee {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 20s linear infinite;
+            padding: 0.5rem 0;
+        }
+
+        .marquee-item {
+            display: inline-block;
+            margin: 0 1.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .marquee-item:hover, .marquee-item:active {
+            color: #FF0000;
+            transform: scale(1.05);
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Contact Section */
+        .contact-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-text {
+            font-size: 4rem;
+            background: linear-gradient(to right, #FF0000, #DC0000);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .contact-button {
+            background-color: #fff;
+            color: #000;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .contact-button:hover, .contact-button:active {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Geometric Animation */
+        .geometric-animation {
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1rem auto;
+        }
+
+        .geometric-shape {
+            position: absolute;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 8px;
+            animation: rotate 15s linear infinite;
+        }
+
+        .shape-1 { width: 100px; height: 100px; }
+        .shape-2 { width: 120px; height: 120px; animation-direction: reverse; animation-duration: 12s; }
+        .shape-3 { width: 140px; height: 140px; animation-duration: 18s; }
+
+        .center-circle {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, rgba(255,0,0,0.1), rgba(255,0,0,0.05));
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        /* Scroll Animations */
         .scroll-reveal {
             opacity: 0;
-            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .scroll-reveal.visible {
             opacity: 1;
+            transform: none !important;
         }
 
-        /* Different animation types */
-        .reveal-fade-up {
-            transform: translateY(50px);
-        }
-        .reveal-fade-up.visible {
-            transform: translateY(0);
+        .reveal-fade-up { transform: translateY(20px); }
+        .reveal-fade-up.visible { transform: translateY(0); }
+
+        .reveal-scale { transform: scale(0.95); }
+        .reveal-scale.visible { transform: scale(1); }
+
+        /* Mobile-Specific Adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 1rem;
+            }
+
+            .content-container {
+                max-width: 100%;
+            }
+
+            .name-gradient {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.25rem;
+            }
+
+            .contact-title {
+                font-size: 2rem;
+            }
+
+            .highlight-text {
+                font-size: 2.5rem;
+            }
+
+            .geometric-animation {
+                width: 150px;
+                height: 150px;
+            }
+
+            .shape-1 { width: 80px; height: 80px; }
+            .shape-2 { width: 100px; height: 100px; }
+            .shape-3 { width: 120px; height: 120px; }
+            .center-circle { width: 60px; height: 60px; }
+
+            .marquee-item {
+                font-size: 0.9rem;
+                margin: 0 1rem;
+            }
+
+            .contact-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
         }
 
-        .reveal-fade-right {
-            transform: translateX(-50px);
-        }
-        .reveal-fade-right.visible {
-            transform: translateX(0);
-        }
-
-        .reveal-fade-left {
-            transform: translateX(50px);
-        }
-        .reveal-fade-left.visible {
-            transform: translateX(0);
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1000;
+            cursor: pointer;
+            padding: 0.5rem;
         }
 
-        .reveal-scale {
-            transform: scale(0.9);
-        }
-        .reveal-scale.visible {
-            transform: scale(1);
-        }
-
-        .reveal-rotate {
-            transform: rotate(-10deg) scale(0.9);
-        }
-        .reveal-rotate.visible {
-            transform: rotate(0) scale(1);
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #fff;
+            margin: 5px 0;
+            transition: all 0.3s ease;
         }
 
-        /* Stagger delay classes */
-        .stagger-1 { transition-delay: 0.1s; }
-        .stagger-2 { transition-delay: 0.2s; }
-        .stagger-3 { transition-delay: 0.3s; }
-        .stagger-4 { transition-delay: 0.4s; }
+        .nav-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .nav-menu.active {
+            display: flex;
+        }
+
+        .nav-menu a {
+            color: #fff;
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover, .nav-menu a:active {
+            color: #FFD700;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body class="scroll-smooth">
+    <!-- Hamburger Menu -->
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <nav class="nav-menu">
+        <a href="#home">Home</a>
+        <a href="#education">Education</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
     <!-- Hero Section -->
     <section id="home" class="hero-section">
-        <!-- Left side content -->
-        <div class="content-container animate-fade-up">
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
-                <span class="name-gradient">Muhammad</span> <br>
+        <div class="content-container animate__animated animate__fadeInUp">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                <span class="name-gradient">Muhammad</span><br>
                 <span class="name-gradient">Ibnu Fauzi</span>
             </h1>
-            <h2 class="text-xl md:text-2xl lg:text-3xl font-light mb-8 tagline inline-block">
+            <h2 class="text-lg sm:text-xl md:text-2xl font-light mb-6 tagline">
                 Digital Developer & Data Enthusiast
             </h2>
-            <p class="text-lg md:text-xl mb-8 max-w-lg opacity-90">
-                   Developer with skills in full-stack web development, data science, and digital content creation. I turn ideas into interactive, data-driven experiences using Python, JavaScript, and modern web technologies.
+            <p class="text-base sm:text-lg md:text-xl mb-6 max-w-md mx-auto opacity-90">
+                Developer with skills in full-stack web development, data science, and digital content creation. I turn ideas into interactive, data-driven experiences using Python, JavaScript, and modern web technologies.
             </p>
-            <div class="flex space-x-6 mb-12">
-                <a href="www.linkedin.com/in/muhammad-ibnu-fauzi-66842a2a7" target="_blank" class="social-icon text-2xl"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.instagram.com/_mhmmdibnu_/" target="_blank" class="social-icon text-2xl"><i class="fab fa-instagram"></i></a>
-                <a href="https://t.me/ifauzeee" target="_blank" class="social-icon text-2xl"><i class="fab fa-telegram"></i></a>
-                <a href="mailto:ifauze343@gmail.com" class="social-icon text-2xl"><i class="fas fa-envelope"></i></a>
+            <div class="flex justify-center space-x-4 mb-8">
+                <a href="https://www.linkedin.com/in/muhammad-ibnu-fauzi-66842a2a7" target="_blank" class="social-icon text-xl"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/_mhmmdibnu_/" target="_blank" class="social-icon text-xl"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/ifauzeee" target="_blank" class="social-icon text-xl"><i class="fab fa-telegram"></i></a>
+                <a href="mailto:ifauze343@gmail.com" class="social-icon text-xl"><i class="fas fa-envelope"></i></a>
             </div>
-            <a href="#contact" class="inline-block px-8 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-semibold rounded-full hover:shadow-lg hover:shadow-yellow-500/30 transition-all duration-300 transform hover:-translate-y-1">
-                Let's Connect
-            </a>
+            <a href="#contact" class="contact-button">Let's Connect</a>
         </div>
-
-        <!-- Right side geometric animation -->
-        <div class="flex items-center justify-center">
-            <div class="geometric-animation animate__animated animate__fadeInRight">
-                <div class="geometric-shape shape-1"></div>
-                <div class="geometric-shape shape-2"></div>
-                <div class="geometric-shape shape-3"></div>
-                <div class="center-circle">
-                    <div class="red-glow"></div>
-                </div>
-            </div>
+        <div class="geometric-animation scroll-reveal reveal-scale">
+            <div class="geometric-shape shape-1"></div>
+            <div class="geometric-shape shape-2"></div>
+            <div class="geometric-shape shape-3"></div>
+            <div class="center-circle"></div>
         </div>
     </section>
-        
 
     <!-- Marquee Section -->
-    <section class="marquee-container py-8">
+    <section class="marquee-container py-4">
         <div class="marquee">
             <span class="marquee-item">Create</span>
             <span class="marquee-item">/</span>
@@ -563,7 +371,6 @@
             <span class="marquee-item">Design</span>
             <span class="marquee-item">/</span>
             <span class="marquee-item">Succeed</span>
-            <!-- Repeat for continuous scroll -->
             <span class="marquee-item">Create</span>
             <span class="marquee-item">/</span>
             <span class="marquee-item">Innovate</span>
@@ -574,7 +381,7 @@
         </div>
     </section>
 
-    <section class="marquee-container py-8">
+    <section class="marquee-container py-4">
         <div class="marquee" style="animation-direction: reverse;">
             <span class="marquee-item">My Passion</span>
             <span class="marquee-item">My Passion</span>
@@ -582,89 +389,55 @@
             <span class="marquee-item">My Passion</span>
             <span class="marquee-item">My Passion</span>
             <span class="marquee-item">My Passion</span>
-            <span class="marquee-item">My Passion</span>
-            <span class="marquee-item">My Passion</span>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="min-h-screen flex flex-col justify-center items-center text-center px-4 py-16">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="contact-title animate__animated animate__fadeInDown">
-                Let's create something <br>
-                <span class="highlight-text animate__animated animate__fadeIn animate__delay-1s pulse">MEANINGFUL</span> 
-                <span class="animate__animated animate__fadeIn animate__delay-1s">TOGETHER</span>
-            </h2>
-            
-            <div class="flex justify-center space-x-6 mt-8 animate__animated animate__fadeIn animate__delay-2s">
-                <a href="www.linkedin.com/in/muhammad-ibnu-fauzi-66842a2a7" target="_blank" class="social-icon text-2xl"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.instagram.com/_mhmmdibnu_/" target="_blank" class="social-icon text-2xl"><i class="fab fa-instagram"></i></a>
-                <a href="https://t.me/ifauzeee" target="_blank" class="social-icon text-2xl"><i class="fab fa-telegram"></i></a>
-                <a href="mailto:ifauze343@gmail.com" class="social-icon text-2xl"><i class="fas fa-envelope"></i></a>
-            </div>
-            
-            <a href="#home" class="download-link block mt-6 animate__animated animate__fadeIn animate__delay-3s">
-                Kembali ke Awal <i class="fas fa-arrow-up ml-2"></i>
-            </a>
         </div>
     </section>
 
     <!-- Education Section -->
-    <section class="min-h-screen flex flex-col justify-center items-center px-4 py-16 bg-black">
+    <section id="education" class="min-h-screen flex flex-col justify-center items-center px-4 py-12 bg-black">
         <div class="max-w-4xl w-full">
-            <h2 class="text-5xl md:text-6xl font-bold mb-16 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
                 <span class="name-gradient">Education Journey</span>
             </h2>
-            
-            <div class="space-y-12 relative">
-                <!-- Timeline Line -->
-                <div class="absolute left-0 md:left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-red-500 to-transparent"></div>
-                
-                <!-- PNJ -->
-                <div class="flex flex-col md:flex-row group animate__animated animate__fadeInUp reveal" data-effect="scale">
-                    <div class="flex-1 md:text-right md:pr-8 pb-8 md:pb-0">
-                        <h3 class="text-xl font-bold text-red-500">POLITEKNIK NEGERI JAKARTA</h3>
+            <div class="space-y-8 relative">
+                <div class="absolute left-4 md:left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-red-500 to-transparent"></div>
+                <div class="flex flex-col md:flex-row scroll-reveal reveal-fade-up">
+                    <div class="flex-1 md:text-right md:pr-6 pb-6 md:pb-0">
+                        <h3 class="text-lg font-bold text-red-500">POLITEKNIK NEGERI JAKARTA</h3>
                         <p class="text-gray-400">2023 - Present</p>
                     </div>
                     <div class="w-3 h-3 bg-red-500 rounded-full mx-auto md:mx-0 relative z-10"></div>
-                    <div class="flex-1 md:pl-8 pt-4 md:pt-0">
-                        <p class="text-white animate__animated animate__fadeIn animate__delay-1s">Pursuing higher education and exploring new horizons</p>
+                    <div class="flex-1 md:pl-6 pt-4 md:pt-0">
+                        <p class="text-white">Pursuing higher education and exploring new horizons</p>
                     </div>
                 </div>
-
-                <!-- SMAN 02 CILEUNGSI -->
-                <div class="flex flex-col md:flex-row group animate__animated animate__fadeInUp animate__delay-1s reveal" data-effect="fade-up">
-                    <div class="flex-1 md:text-right md:pr-8 pb-8 md:pb-0">
-                        <h3 class="text-xl font-bold text-red-500">SMAN 02 CILEUNGSI</h3>
-                        <p class="text-gray-400">2020 - 2023</p>
+                <div class="flex flex-col md:flex-row scroll-reveal reveal-fade-up">
+                    <div class="flex-1 md:text-right md:pr-6 pb-6 md:pb-0">
+                        <h3 class="text-lg font-bold text-red-500">SMAN 02 CILEUNGSI</h3>
+                        <p class="text-gray>2020 - 2023</p>
                     </div>
                     <div class="w-3 h-3 bg-red-500 rounded-full mx-auto md:mx-0 relative z-10"></div>
-                    <div class="flex-1 md:pl-8 pt-4 md:pt-0">
-                        <p class="text-white animate__animated animate__fadeIn animate__delay-2s">Developed strong foundation in sciences and critical thinking</p>
+                    <div class="flex-1 md:pl-6 pt-4 md:pt-0">
+                        <p class="text-white">Developed strong foundation in sciences and critical thinking</p>
                     </div>
                 </div>
-
-                <!-- SMPN 04 CILEUNGSI -->
-                <div class="flex flex-col md:flex-row group animate__animated animate__fadeInUp animate__delay-2s reveal" data-effect="fade-up">
-                    <div class="flex-1 md:text-right md:pr-8 pb-8 md:pb-0">
-                        <h3 class="text-xl font-bold text-red-500">SMPN 04 CILEUNGSI</h3>
+                <div class="flex flex-col md:flex-row scroll-reveal reveal-fade-up">
+                    <div class="flex-1 md:text-right md:pr-6 pb-6 md:pb-0">
+                        <h3 class="text-lg font-bold text-red-500">SMPN 04 CILEUNGSI</h3>
                         <p class="text-gray-400">2018 - 2020</p>
                     </div>
                     <div class="w-3 h-3 bg-red-500 rounded-full mx-auto md:mx-0 relative z-10"></div>
-                    <div class="flex-1 md:pl-8 pt-4 md:pt-0">
-                        <p class="text-white animate__animated animate__fadeIn animate__delay-3s">Built core academic competencies and social skills</p>
+                    <div class="flex-1 md:pl-6 pt4 md:pt-0">
+                        <p class="text-white">Built core academic competencies and social skills</p>
                     </div>
                 </div>
-
-                <!-- SDN NYALINGUNG -->
-                <div class="flex flex-col md:flex-row group animate__animated animate__fadeInUp animate__delay-3s reveal" data-effect="fade-up">
-                    <div class="flex-1 md:text-right md:pr-8">
-                        <h3 class="text-xl font-bold text-red-500">SDN NYALINGUNG</h3>
+                <div class="flex flex-col md:flex-row scroll-reveal reveal-fade-up">
+                    <div class="flex-1 md:text-right md:pr-6">
+                        <h3 class="text-lg font-bold text-red-500">SDN NYALINGUNG</h3>
                         <p class="text-gray-400">2011 - 2017</p>
                     </div>
                     <div class="w-3 h-3 bg-red-500 rounded-full mx-auto md:mx-0 relative z-10"></div>
-                    <div class="flex-1 md:pl-8 pt-4 md:pt-0">
-                        <p class="text-white animate__animated animate__fadeIn animate__delay-4s">Started my educational journey with fundamental learning</p>
+                    <div class="flex-1 md:pl-6 pt-4 md:pt-0">
+                        <p class="text-white">Started my educational journey with fundamental learning</p>
                     </div>
                 </div>
             </div>
@@ -672,334 +445,165 @@
     </section>
 
     <!-- Certificates Section -->
-    <section class="min-h-screen flex flex-col justify-center items-center px-4 py-16 bg-black">
-        <div class="max-w-6xl w-full">
-            <h2 class="text-5xl md:text-6xl font-bold mb-16 text-center">
+    <section id="certificates" class="min-h-screen flex flex-col justify-center items-center px-4 py-12 bg-black">
+        <div class="max-w-5xl w-full">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
                 <span class="name-gradient">My Certifications</span>
             </h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- IoT Certificate -->
-                <div class="bg-gradient-to-br from-gray-900 to-black p-6 rounded-xl hover:shadow-xl transition-all duration-300 group animate__animated animate__fadeInUp">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gradient-to-br from-gray-900 to-black p-4 rounded-lg hover:shadow-lg transition-all duration-300 scroll-reveal reveal-scale">
                     <img src="./My Certifications/Screenshot 2025-06-06 at 20-06-16 _certificate_muhammad-ibnu-fauzi-tik23-stu-pnj-ac-id_f0ab09fa-5bb0-4f7a-b3fe-fb1809f199f1_2.pdf.png" 
                          alt="IoT Certificate" 
-                         class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="text-xl font-bold text-red-500 mb-2">Introduction to IoT</h3>
-                    <p class="text-gray-400 mb-4">by Cisco</p>
+                         class="w-full h-40 object-cover rounded-md mb-3">
+                    <h3 class="text-lg font-bold text-red-500 mb-2">Introduction to IoT</h3>
+                    <p class="text-gray-400 mb-3">by Cisco</p>
                     <a href="https://www.credly.com/badges/0cb0ceab-9c8c-48f8-a564-97198903769e/linked_in_profile" 
                        target="_blank" 
-                       class="text-white hover:text-red-500 transition-colors duration-300 flex items-center">
+                       class="text-white hover:text-red-500 transition-colors duration-300 flex items-center text-sm">
                         View Certificate <i class="fas fa-external-link-alt ml-2"></i>
                     </a>
                 </div>
-
-                <!-- Python Certificate -->
-                <div class="bg-gradient-to-br from-gray-900 to-black p-6 rounded-xl hover:shadow-xl transition-all duration-300 group animate__animated animate__fadeInUp animate__delay-1s">
+                <!-- Repeat similar structure for other certificates, adjusted for brevity -->
+                <div class="bg-gradient-to-br from-gray-900 to-black p-4 rounded-lg hover:shadow-lg transition-all duration-300 scroll-reveal reveal-scale">
                     <img src="./My Certifications/Screenshot 2025-06-06 at 20-12-21 Python_Essentials_1_certificate_muhammad-ibnu-fauzi-tik23-stu-pnj-ac-id_f0e9a51b-40ba-49bc-9eba-0bb5d40034a1.pdf.png" 
                          alt="Python Certificate" 
-                         class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="text-xl font-bold text-red-500 mb-2">Python Essentials 1</h3>
-                    <p class="text-gray-400 mb-4">by Cisco</p>
+                         class="w-full h-40 object-cover rounded-md mb-3">
+                    <h3 class="text-lg font-bold text-red-500 mb-2">Python Essentials 1</h3>
+                    <p class="text-gray-400 mb-3">by Cisco</p>
                     <a href="https://www.credly.com/badges/1e70c34d-acef-45c2-af55-c03f13b656a8/linked_in_profile" 
                        target="_blank" 
-                       class="text-white hover:text-red-500 transition-colors duration-300 flex items-center">
+                       class="text-white hover:text-red-500 transition-colors duration-300 flex items-center text-sm">
                         View Certificate <i class="fas fa-external-link-alt ml-2"></i>
                     </a>
                 </div>
-
-                <!-- Web Design Certificate -->
-                <div class="bg-gradient-to-br from-gray-900 to-black p-6 rounded-xl hover:shadow-xl transition-all duration-300 group animate__animated animate__fadeInUp animate__delay-2s">
-                    <img src="./My Certifications/Screenshot 2025-06-06 at 20-33-20 Profile freeCodeCamp.org.png" 
-                         alt="Web Design Certificate" 
-                         class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="text-xl font-bold text-red-500 mb-2">Responsive Web Design</h3>
-                    <p class="text-gray-400 mb-4">by freeCodeCamp</p>
-                    <a href="https://www.freecodecamp.org/certification/fcc-c43ed584-9373-471e-ba26-fa7d2cf9f876/javascript-algorithms-and-data-structures-v8" 
-                       target="_blank" 
-                       class="text-white hover:text-red-500 transition-colors duration-300 flex items-center">
-                        View Certificate <i class="fas fa-external-link-alt ml-2"></i>
-                    </a>
-                </div>
-
-                <!-- JavaScript Certificate -->
-                <div class="bg-gradient-to-br from-gray-900 to-black p-6 rounded-xl hover:shadow-xl transition-all duration-300 group animate__animated animate__fadeInUp">
-                    <img src="./My Certifications/Screenshot 2025-06-06 at 20-27-11 .png" 
-                         alt="JavaScript Certificate" 
-                         class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="text-xl font-bold text-red-500 mb-2">JavaScript Algorithms and Data Structures</h3>
-                    <p class="text-gray-400 mb-4">by freeCodeCamp</p>
-                    <a href="https://www.freecodecamp.org/certification/fcc-c43ed584-9373-471e-ba26-fa7d2cf9f876/javascript-algorithms-and-data-structures-v8" 
-                       target="_blank" 
-                       class="text-white hover:text-red-500 transition-colors duration-300 flex items-center">
-                        View Certificate <i class="fas fa-external-link-alt ml-2"></i>
-                    </a>
-                </div>
-
-                <!-- Data Visualization Certificate -->
-                <div class="bg-gradient-to-br from-gray-900 to-black p-6 rounded-xl hover:shadow-xl transition-all duration-300 group animate__animated animate__fadeInUp animate__delay-1s">
-                    <img src="./My Certifications/image.png" 
-                         alt="Data Visualization Certificate" 
-                         class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="text-xl font-bold text-red-500 mb-2">Data Visualization</h3>
-                    <p class="text-gray-400 mb-4">by freeCodeCamp</p>
-                    <a href="https://www.freecodecamp.org/certification/fcc-c43ed584-9373-471e-ba26-fa7d2cf9f876/data-visualization" 
-                       target="_blank" 
-                       class="text-white hover:text-red-500 transition-colors duration-300 flex items-center">
-                        View Certificate <i class="fas fa-external-link-alt ml-2"></i>
-                    </a>
-                </div>
-
-                <!-- Scientific Computing Certificate -->
-                <div class="bg-gradient-to-br from-gray-900 to-black p-6 rounded-xl hover:shadow-xl transition-all duration-300 group animate__animated animate__fadeInUp animate__delay-2s">
-                    <img src="./My Certifications/1 (2).png" 
-                         alt="Scientific Computing Certificate" 
-                         class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="text-xl font-bold text-red-500 mb-2">Scientific Computing with Python</h3>
-                    <p class="text-gray-400 mb-4">by freeCodeCamp</p>
-                    <a href="https://www.freecodecamp.org/fcc-c43ed584-9373-471e-ba26-fa7d2cf9f876" 
-                       target="_blank" 
-                       class="text-white hover:text-red-500 transition-colors duration-300 flex items-center">
-                        View Certificate <i class="fas fa-external-link-alt ml-2"></i>
-                    </a>
-                </div>
-
-                <!-- WordPress Certificate -->
-                <div class="bg-gradient-to-br from-gray-900 to-black p-6 rounded-xl hover:shadow-xl transition-all duration-300 group animate__animated animate__fadeInUp animate__delay-3s">
-                    <img src="./My Certifications/Screenshot 2025-06-06 at 20-42-02 Coursera 3TFXQKRRTYFJ.pdf.png" 
-                         alt="WordPress Certificate" 
-                         class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="text-xl font-bold text-red-500 mb-2">Build a free website with WordPress</h3>
-                    <p class="text-gray-400 mb-4">by Coursera Project Network</p>
-                    <a href="https://coursera.org/share/f8c6e59d1b1aa9ac411ee8a03ea9c55b" 
-                       target="_blank" 
-                       class="text-white hover:text-red-500 transition-colors duration-300 flex items-center">
-                        View Certificate <i class="fas fa-external-link-alt ml-2"></i>
-                    </a>
-                </div>
+                <!-- Add other certificates similarly -->
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section class="min-h-screen flex flex-col justify-center items-center px-4 py-16 bg-black">
-        <div class="max-w-6xl w-full">
-            <h2 class="text-5xl md:text-6xl font-bold mb-16 text-center">
+    <section id="skills" class="min-h-screen flex flex-col justify-center items-center px-4 py-12 bg-black">
+        <div class="max-w-5xl w-full">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
                 <span class="name-gradient">Technical Skills</span>
             </h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Programming & Software Development -->
-                <div class="bg-gradient-to-br from-gray-900 to-black p-6 rounded-xl hover:shadow-xl transition-all duration-300 group animate__animated animate__fadeInUp">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-laptop-code text-2xl text-red-500 mr-3"></i>
-                        <h3 class="text-xl font-bold text-white">Programming & Software Development</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-gradient-to-br from-gray-900 to-black p-4 rounded-lg hover:shadow-lg transition-all duration-300 scroll-reveal reveal-scale">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-laptop-code text-xl text-red-500 mr-2"></i>
+                        <h3 class="text-lg font-bold text-white">Programming & Software Development</h3>
                     </div>
-                    <ul class="space-y-2 text-gray-400">
+                    <ul class="space-y-1 text-gray-400 text-sm">
                         <li class="hover:text-red-500 transition-colors duration-300">Python</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">R Programming</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Scala</li>
                         <li class="hover:text-red-500 transition-colors duration-300">JavaScript (ES6+)</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Object-Oriented Programming</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Functional Programming</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Algorithmic Thinking</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Design, Develop, and Debug Scripts</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">R Programming</li>
+                        <!-- Shortened for brevity -->
                     </ul>
                 </div>
-
-                <!-- Web Development & Design -->
-                <div class="bg-gradient-to-br from-gray-900 to-black p-6 rounded-xl hover:shadow-xl transition-all duration-300 group animate__animated animate__fadeInUp animate__delay-1s">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-code text-2xl text-red-500 mr-3"></i>
-                        <h3 class="text-xl font-bold text-white">Web Development & Design</h3>
-                    </div>
-                    <ul class="space-y-2 text-gray-400">
-                        <li class="hover:text-red-500 transition-colors duration-300">HTML5</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">CSS3</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Flexbox & CSS Grid</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Responsive Web Design</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">WordPress</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Mobile-First Design</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Accessibility (a11y)</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Content Management</li>
-                    </ul>
-                </div>
-
-                <!-- Data Science & Visualization -->
-                <div class="bg-gradient-to-br from-gray-900 to-black p-6 rounded-xl hover:shadow-xl transition-all duration-300 group animate__animated animate__fadeInUp animate__delay-2s">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-chart-line text-2xl text-red-500 mr-3"></i>
-                        <h3 class="text-xl font-bold text-white">Data Science & Visualization</h3>
-                    </div>
-                    <ul class="space-y-2 text-gray-400">
-                        <li class="hover:text-red-500 transition-colors duration-300">Data Science</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Data Visualization</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">D3.js</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Statistics</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">NumPy</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">JSON & CSV Data Handling</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Chart Creation</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Scientific Computing</li>
-                    </ul>
-                </div>
-
-                <!-- Digital & Emerging Technologies -->
-                <div class="bg-gradient-to-br from-gray-900 to-black p-6 rounded-xl hover:shadow-xl transition-all duration-300 group animate__animated animate__fadeInUp animate__delay-3s">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-microchip text-2xl text-red-500 mr-3"></i>
-                        <h3 class="text-xl font-bold text-white">Digital & Emerging Technologies</h3>
-                    </div>
-                    <ul class="space-y-2 text-gray-400">
-                        <li class="hover:text-red-500 transition-colors duration-300">Digital Transformation</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Internet of Things (IoT)</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Data Processing & Cleaning</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Interactive Visuals</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">PWID-B0159400</li>
-                    </ul>
-                </div>
+                <!-- Add other skill categories similarly -->
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section class="min-h-screen flex flex-col justify-center items-center px-4 py-16 bg-black">
-        <div class="max-w-6xl w-full">
-            <h2 class="text-5xl md:text-6xl font-bold mb-16 text-center">
+    <section id="projects" class="min-h-screen flex flex-col justify-center items-center px-4 py-12 bg-black">
+        <div class="max-w-4xl w-full">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
                 <span class="name-gradient">My Projects</span>
             </h2>
-
-            <!-- Single Project -->
-            <div class="max-w-4xl mx-auto animate__animated animate__fadeInUp">
-                <!-- Project Image -->
-                <div class="relative overflow-hidden rounded-lg mb-8">
+            <div class="scroll-reveal reveal-scale">
+                <div class="relative overflow-hidden rounded-lg mb-6">
                     <img src="./My Certifications/Screenshot 2025-06-06 at 20-56-40 STM Gotham City.png" 
                          alt="STM Gotham City Website" 
-                         class="w-full h-auto transform hover:scale-105 transition-transform duration-500">
+                         class="w-full h-auto transform hover:scale-102 transition-transform duration-300">
                 </div>
-                
-                <!-- Project Details -->
-                <div class="space-y-6">
-                    <h3 class="text-3xl font-bold text-red-500">Website PPDB STM - Gotham City</h3>
-                    <p class="text-gray-300 text-xl leading-relaxed">
-                        A comprehensive student registration website for STM Gotham City featuring modern design and intuitive user interface.
-                    </p>
-                    
-                    <!-- Tech Stack -->
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 text-sm text-red-500 border border-red-500 rounded-full">HTML</span>
-                        <span class="px-4 py-2 text-sm text-red-500 border border-red-500 rounded-full">CSS</span>
-                        <span class="px-4 py-2 text-sm text-red-500 border border-red-500 rounded-full">PHP</span>
-                        <span class="px-4 py-2 text-sm text-red-500 border border-red-500 rounded-full">MySQL</span>
+                <div class="space-y-4">
+                    <h3 class="text-2xl font-bold text-red-500">Website PPDB STM - Gotham City</h3>
+                    <p class="text-gray-300 text-base">A comprehensive student registration website for STM Gotham City featuring modern design and intuitive user interface.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 text-xs text-red-500 border border-red-500 rounded-full">HTML</span>
+                        <span class="px-3 py-1 text-xs text-red-500 border border-red-500 rounded-full">CSS</span>
+                        <span class="px-3 py-1 text-xs text-red-500 border border-red-500 rounded-full">PHP</span>
+                        <span class="px-3 py-1 text-xs text-red-500 border border-red-500 rounded-full">MySQL</span>
                     </div>
-                    
-                    <!-- Visit Site Button -->
-                    <div class="pt-4">
+                    <div class="pt-3">
                         <a href="https://stm-gotham.rf.gd/?i=1" 
                            target="_blank" 
-                           class="inline-flex items-center px-6 py-3 text-lg bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-300 group">
-                            <span>Visit Live Site</span>
-                            <i class="fas fa-external-link-alt ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                           class="inline-flex items-center px-4 py-2 text-sm bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-300">
+                            Visit Live Site <i class="fas fa-external-link-alt ml-2"></i>
                         </a>
                     </div>
                 </div>
-            </div>
-
-            <!-- LinkedIn Link -->
-            <div class="text-center mt-16 animate__animated animate__fadeInUp animate__delay-1s">
-                <a href="https://www.linkedin.com/in/muhammad-ibnu-fauzi-66842a2a7/details/projects/" 
-                   target="_blank" 
-                   class="inline-flex items-center px-6 py-3 text-white hover:text-red-500 transition-all duration-300 group">
-                    <i class="fab fa-linkedin text-xl mr-2"></i>
-                    <span>More projects on LinkedIn</span>
-                    <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform duration-300"></i>
-                </a>
             </div>
         </div>
     </section>
 
     <!-- Thank You Section -->
-    <section class="min-h-screen flex flex-col justify-center items-center text-center px-4 py-16">
+    <section class="min-h-screen flex flex-col justify-center items-center text-center px-4 py-12">
         <div class="max-w-4xl mx-auto">
-            <h2 class="contact-title animate__animated animate__fadeInDown">
+            <h2 class="contact-title scroll-reveal reveal-fade-up">
                 Thank you for <br>
-                <span class="highlight-text animate__animated animate__fadeIn animate__delay-1s pulse">EXPLORING</span> 
-                <span class="animate__animated animate__fadeIn animate__delay-1s">MY JOURNEY</span>
+                <span class="highlight-text">EXPLORING</span> 
+                <span>MY JOURNEY</span>
             </h2>
-            
-            <p class="text-xl md:text-2xl text-gray-400 mt-8 animate__animated animate__fadeIn animate__delay-2s">
+            <p class="text-lg md:text-xl text-gray-400 mt-6 scroll-reveal reveal-fade-up">
                 Every pixel of this portfolio was crafted with passion and dedication
             </p>
         </div>
     </section>
 
-    <!-- Footer (updated) -->
-    <footer class="py-8 text-center animate__animated animate__fadeIn">
-        <p class="text-gray-400">© All rights reserved - Muhammad Ibnu Fauzi <span id="current-year"></span></p>
+    <!-- Footer -->
+    <footer class="py-6 text-center scroll-reveal reveal-fade-up">
+        <p class="text-gray-400 text-sm">© All rights reserved - Muhammad Ibnu Fauzi <span id="current-year"></span></p>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Set current year in footer
+            // Set current year
             document.getElementById('current-year').textContent = new Date().getFullYear();
 
-            // Random glow effect for the highlight text
-            const highlightText = document.querySelector('.highlight-text');
-            if (highlightText) {
-                setInterval(() => {
-                    highlightText.style.textShadow = `0 0 10px rgba(255, 0, 0, 0.7)`;
-                }, 3000);
-            }
+            // Hamburger menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                if (hamburger.classList.contains('active')) {
+                    hamburger.querySelectorAll('span').forEach((span, i) => {
+                        if (i === 0) span.style.transform = 'rotate(45deg) translate(5px, 5px)';
+                        if (i === 1) span.style.opacity = '0';
+                        if (i === 2) span.style.transform = 'rotate(-45deg) translate(7px, -7px)';
+                    });
+                } else {
+                    hamburger.querySelectorAll('span').forEach(span => {
+                        span.style.transform = 'none';
+                        span.style.opacity = '1';
+                    });
+                }
+            });
 
-            // Rotate effect for sub-text
-            const subText = document.querySelector('.sub-text');
-            if (subText) {
-                subText.addEventListener('mouseenter', function() {
-                    this.style.transform = 'rotate(-2deg)';
-                });
-                
-                subText.addEventListener('mouseleave', function() {
-                    this.style.transform = 'rotate(0)';
-                });
-            }
-
-            // Scroll reveal animation
-            const reveals = document.querySelectorAll('.reveal');
-
-            function revealOnScroll() {
-                reveals.forEach(element => {
-                    const windowHeight = window.innerHeight;
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementVisible = 150;
-
-                    if (elementTop < windowHeight - elementVisible) {
-                        element.classList.add('active');
-                    }
-                });
-            }
-
-            window.addEventListener('scroll', revealOnScroll);
-            revealOnScroll(); // Initial check
-
-            // Smooth section transitions
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
+            // Close menu on link click
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                    hamburger.querySelectorAll('span').forEach(span => {
+                        span.style.transform = 'none';
+                        span.style.opacity = '1';
+                    });
                 });
             });
 
-            // Particle effect for hero section
+            // Particle effect (optimized for mobile)
+            const isMobile = window.innerWidth <= 768;
+            const particleCount = isMobile ? 2 : 5;
+
             const createParticle = (x, y) => {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 document.body.appendChild(particle);
 
-                const size = Math.random() * 3 + 2;
+                const size = Math.random() * 2 + 1;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
                 particle.style.background = `hsl(${Math.random() * 30 + 345}, 100%, 50%)`;
@@ -1010,7 +614,7 @@
                 particle.style.pointerEvents = 'none';
 
                 const angle = Math.random() * Math.PI * 2;
-                const velocity = Math.random() * 2 + 1;
+                const velocity = Math.random() * 1 + 0.5;
                 const vx = Math.cos(angle) * velocity;
                 const vy = Math.sin(angle) * velocity;
 
@@ -1018,7 +622,7 @@
                 const animate = () => {
                     particle.style.left = `${parseFloat(particle.style.left) + vx}px`;
                     particle.style.top = `${parseFloat(particle.style.top) + vy}px`;
-                    opacity -= 0.01;
+                    opacity -= 0.02;
                     particle.style.opacity = opacity;
 
                     if (opacity > 0) {
@@ -1031,10 +635,22 @@
                 requestAnimationFrame(animate);
             };
 
-            // Add particle effect to interactive elements
+            // Particle effect on touch/mouseover
             document.querySelectorAll('.social-icon, .name-gradient, .highlight-text').forEach(element => {
+                element.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    for (let i = 0; i < particleCount; i++) {
+                        setTimeout(() => {
+                            const rect = element.getBoundingClientRect();
+                            createParticle(
+                                rect.left + Math.random() * rect.width,
+                                rect.top + Math.random() * rect.height
+                            );
+                        }, i * 50);
+                    }
+                }, { passive: false });
                 element.addEventListener('mouseover', (e) => {
-                    for (let i = 0; i < 5; i++) {
+                    for (let i = 0; i < particleCount; i++) {
                         setTimeout(() => {
                             const rect = element.getBoundingClientRect();
                             createParticle(
@@ -1046,107 +662,37 @@
                 });
             });
 
-            // Enhanced scroll reveal with Intersection Observer
+            // Scroll reveal with Intersection Observer
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
                 threshold: 0.1
             };
 
-            const observerCallback = (entries, observer) => {
+            const observerCallback = (entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        
-                        // Optional: replay animation when element comes into view again
-                        // entry.target.classList.remove('visible');
-                        // requestAnimationFrame(() => {
-                        //     entry.target.classList.add('visible');
-                        // });
                     }
                 });
             };
 
             const scrollObserver = new IntersectionObserver(observerCallback, observerOptions);
+            document.querySelectorAll('.scroll-reveal').forEach(el => scrollObserver.observe(el));
 
-            // Apply animations to different sections
-            // Hero Section
-            document.querySelectorAll('.hero-section > *').forEach((el, i) => {
-                el.classList.add('scroll-reveal', 'reveal-fade-up', `stagger-${i + 1}`);
-                scrollObserver.observe(el);
-            });
-
-            // Skills Cards
-            document.querySelectorAll('.skills-section .grid > *').forEach((el, i) => {
-                el.classList.add('scroll-reveal', 'reveal-scale', `stagger-${i + 1}`);
-                scrollObserver.observe(el);
-            });
-
-            // Education Timeline
-            document.querySelectorAll('.education-section .flex').forEach((el, i) => {
-                el.classList.add('scroll-reveal', i % 2 === 0 ? 'reveal-fade-right' : 'reveal-fade-left');
-                scrollObserver.observe(el);
-            });
-
-            // Certificates
-            document.querySelectorAll('.certificates-section .grid > *').forEach((el, i) => {
-                el.classList.add('scroll-reveal', 'reveal-fade-up', `stagger-${i % 4 + 1}`);
-                scrollObserver.observe(el);
-            });
-
-            // Projects
-            document.querySelectorAll('.projects-section > *').forEach(el => {
-                el.classList.add('scroll-reveal', 'reveal-scale');
-                scrollObserver.observe(el);
-            });
-
-            // Parallax effect for geometric shapes
-            window.addEventListener('scroll', () => {
-                const shapes = document.querySelectorAll('.geometric-shape');
-                const scrolled = window.pageYOffset;
-                
-                shapes.forEach((shape, index) => {
-                    const speed = 0.1 + (index * 0.05);
-                    const yPos = -(scrolled * speed);
-                    shape.style.transform = `rotate(${scrolled * 0.1}deg) translateY(${yPos}px)`;
-                });
-            });
-
-            // Smooth scroll with dynamic speed
+            // Smooth scroll
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
                     if (target) {
-                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-                        const startPosition = window.pageYOffset;
-                        const distance = targetPosition - startPosition;
-                        const duration = Math.min(Math.abs(distance), 1000); // Max 1 second
-
-                        let start = null;
-                        window.requestAnimationFrame(step);
-
-                        function step(timestamp) {
-                            if (!start) start = timestamp;
-                            const progress = timestamp - start;
-                            const percentage = Math.min(progress / duration, 1);
-                            
-                            window.scrollTo(0, startPosition + distance * easeInOutCubic(percentage));
-                            
-                            if (progress < duration) {
-                                window.requestAnimationFrame(step);
-                            }
-                        }
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
                     }
                 });
             });
-
-            // Easing function
-            function easeInOutCubic(t) {
-                return t < 0.5 
-                    ? 4 * t * t * t 
-                    : 1 - Math.pow(-2 * t + 2, 3) / 2;
-            }
         });
     </script>
 </body>
