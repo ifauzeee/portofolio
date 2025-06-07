@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Muhammad Ibnu Fauzi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #000000;
+            color: #fff;
+        }
+
+        .name-gradient {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF6347 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .identity-button {
+            background: linear-gradient(45deg, #FF3366, #FF6B6B);
+            color: #fff;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 30px -10px rgba(255, 51, 102, 0.5);
+            z-index: 1;
+        }
+
+        .identity-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .identity-button:hover::before {
+            left: 100%;
+        }
+
+        .identity-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 40px -10px rgba(255, 51, 102, 0.6);
+        }
+
+        .identity-button i {
+            transition: all 0.4s ease;
+        }
+
+        .identity-button:hover i {
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+<body class="scroll-smooth">
+    <!-- Back Button -->
+    <a href="index.html" 
+       class="fixed top-8 left-8 z-50 text-white hover:text-yellow-500 transition-all duration-300 flex items-center group">
+        <i class="fas fa-arrow-left mr-2 group-hover:-translate-x-2 transition-transform"></i>
+        Back to Portfolio
+    </a>
+
+    <!-- Main Content -->
+    <main class="min-h-screen py-24 px-4 md:px-8">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold mb-8 scroll-reveal">
+                <span class="name-gradient">About Me</span>
+            </h1>
+            
+            <div class="space-y-8">
+                <div class="scroll-reveal">
+                    <h2 class="text-2xl font-bold text-yellow-500 mb-4">Who Am I?</h2>
+                    <p class="text-gray-300 leading-relaxed">
+                        I'm Muhammad Ibnu Fauzi, a passionate developer and digital enthusiast based in Indonesia. Currently pursuing my degree in Information Technology at POLITEKNIK NEGERI JAKARTA, I combine creativity with technical expertise to build innovative digital solutions.
+                    </p>
+                </div>
+
+                <div class="scroll-reveal">
+                    <h2 class="text-2xl font-bold text-yellow-500 mb-4">My Journey</h2>
+                    <p class="text-gray-300 leading-relaxed">
+                        My journey in technology began during my high school years, where I discovered my passion for coding and problem-solving. Since then, I've been continuously learning and expanding my skillset in various areas of technology.
+                    </p>
+                </div>
+
+                <div class="scroll-reveal">
+                    <h2 class="text-2xl font-bold text-yellow-500 mb-4">What I Do</h2>
+                    <ul class="list-disc list-inside text-gray-300 space-y-2">
+                        <li>Full-stack Web Development</li>
+                        <li>Data Science and Visualization</li>
+                        <li>Digital Content Creation</li>
+                        <li>UI/UX Design</li>
+                    </ul>
+                </div>
+
+                <div class="scroll-reveal">
+                    <h2 class="text-2xl font-bold text-yellow-500 mb-4">My Goals</h2>
+                    <p class="text-gray-300 leading-relaxed">
+                        I aim to create meaningful digital experiences that make a difference. Whether it's through innovative web applications, data visualization, or creative solutions, I'm always excited to take on new challenges and push the boundaries of what's possible.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Personal Identity Section - Added Code Change -->
+        <div class="max-w-4xl mx-auto mt-16 scroll-reveal">
+            <div class="border-t border-gray-800 pt-12">
+                <h2 class="text-2xl font-bold text-yellow-500 mb-6">Personal Identity</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-300">
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="text-white font-medium mb-1">Full Name</h3>
+                            <p>Muhammad Ibnu Fauzi</p>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-medium mb-1">Date of Birth</h3>
+                            <p>12 September 2004</p>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-medium mb-1">Nationality</h3>
+                            <p>Indonesia</p>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-medium mb-1">Religion</h3>
+                            <p>Islam</p>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-medium mb-1">Location</h3>
+                            <p>Depok, Indonesia</p>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-medium mb-1">Education</h3>
+                            <p>Information Technology - POLITEKNIK NEGERI JAKARTA</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="text-white font-medium mb-1">Languages</h3>
+                            <p>Indonesian (Native)</p>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-medium mb-1">Hobbies & Interests</h3>
+                            <p>Membantu Orang Tua</p>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-medium mb-1">Email</h3>
+                            <p class="hover:text-yellow-500 transition-colors duration-300">
+                                <a href="mailto:ifauze343@gmail.com">ifauze343@gmail.com</a>
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-medium mb-1">Connect</h3>
+                            <div class="flex space-x-4">
+                                <a href="https://www.linkedin.com/in/muhammad-ibnu-fauzi-66842a2a7" target="_blank" 
+                                   class="text-gray-400 hover:text-yellow-500 transition-colors duration-300">
+                                    <i class="fab fa-linkedin text-lg"></i>
+                                </a>
+                                <a href="https://github.com/ifauzeee" target="_blank"
+                                   class="text-gray-400 hover:text-yellow-500 transition-colors duration-300">
+                                    <i class="fab fa-github text-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const revealElements = document.querySelectorAll('.scroll-reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            revealElements.forEach(element => observer.observe(element));
+        });
+    </script>
+</body>
+</html>
