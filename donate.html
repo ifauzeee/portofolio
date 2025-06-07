@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Muhammad Ibnu Fauzi - Donation Playground</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #000000;
+            color: #fff;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+        .name-gradient {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF6347 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .highlight-text {
+            font-weight: 700;
+            font-size: 4rem;
+            background: linear-gradient(to right, #FF0000, #DC0000);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: pulseText 2s ease-in-out infinite;
+        }
+        @keyframes pulseText {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .donate-button {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 2rem;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            animation: bounceIn 1s ease;
+        }
+        .donate-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+        }
+        .fun-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 0, 0, 0.1);
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+            padding: 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: slideInUp 0.8s ease;
+        }
+        .fun-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 0, 0, 0.08);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.1);
+        }
+        .support-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 0, 0, 0.1);
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+            padding: 1.5rem;
+            animation: fadeInLeft 1s ease;
+        }
+        .support-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 0, 0, 0.08);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.1);
+        }
+        .support-item i {
+            transition: transform 0.3s ease;
+        }
+        .support-item:hover i {
+            transform: rotate(360deg);
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .scroll-reveal[data-effect="scale"] {
+            transform: scale(0.95) translateY(20px);
+        }
+        .scroll-reveal[data-effect="scale"].active {
+            transform: scale(1) translateY(0);
+        }
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #FF0000, #FFD700);
+            transform-origin: 0 50%;
+            transform: scaleX(0);
+            z-index: 1000;
+            transition: transform 0.1s linear;
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); opacity: 1; }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); }
+        }
+        @keyframes slideInUp {
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes fadeInLeft {
+            0% { transform: translateX(-50px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+                line-height: 1.5;
+            }
+            section {
+                padding: 2rem 1rem;
+                min-height: auto;
+            }
+            .highlight-text {
+                font-size: 2.5rem;
+            }
+            .donate-button {
+                width: 100%;
+                max-width: 300px;
+                margin: 1.5rem auto;
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+            .fun-card, .support-item {
+                padding: 1.5rem;
+            }
+        }
+        @media (max-width: 375px) {
+            .highlight-text {
+                font-size: 2rem;
+            }
+        }
+        @media (hover: hover) {
+            .hover-lift {
+                transition: transform 0.3s ease;
+            }
+            .hover-lift:hover {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body class="scroll-smooth">
+    <!-- Add this back button right after body tag -->
+    <a href="index.html" 
+       class="fixed top-8 left-8 z-50 text-white hover:text-yellow-500 transition-all duration-300 flex items-center group">
+        <i class="fas fa-arrow-left mr-2 group-hover:-translate-x-2 transition-transform"></i>
+        Back to Portfolio
+    </a>
+
+    <div class="scroll-progress"></div>
+    <section id="donate" class="min-h-[100vh] flex flex-col justify-center items-center text-center px-4 py-12 bg-black scroll-reveal">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 animate__animated animate__fadeInDown">
+                <span class="name-gradient">Donation Playground</span>
+            </h1>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 animate__animated animate__fadeInUp">
+                Just for <span class="highlight-text">Fun</span>
+            </h2>
+            <p class="text-base md:text-lg text-gray-400 mb-8 scroll-reveal animate__animated animate__zoomIn">
+                Welcome to my digital sandbox where I play with code and creativity! If you’re feeling extra awesome and want to toss a virtual coin to my coding adventures, I’d be over the moon!
+            </p>
+        </div>
+    </section>
+    <section class="min-h-[80vh] flex flex-col items-center px-4 py-12 bg-black scroll-reveal">
+        <div class="max-w-6xl w-full">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center animate__animated animate__bounceIn">
+                <span class="name-gradient">Why Support?</span>
+            </h2>
+            <div class="fun-card scroll-reveal hover-lift" data-effect="scale">
+                <h3 class="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-red-500 mb-6 animate__animated animate__fadeIn">
+                    Supporting Digital Innovation
+                </h3>
+                <div class="space-y-6">
+                    <p class="text-gray-300 text-lg leading-relaxed animate__animated animate__fadeInUp">
+                        Welcome to my creative corner of the web! Here, every line of code is crafted with passion and purpose. Your support helps fuel the development of innovative projects and enables me to continue pushing the boundaries of what's possible in web development.
+                    </p>
+                    <p class="text-gray-400 text-base italic animate__animated animate__fadeInUp animate__delay-1s">
+                        Together, we can turn creative ideas into reality and make the digital world more exciting. Every contribution, no matter the size, helps maintain this creative momentum. 🚀
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="min-h-[80vh] flex flex-col items-center px-4 py-12 bg-black scroll-reveal">
+        <div class="max-w-6xl w-full">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center animate__animated animate__bounceIn">
+                <span class="name-gradient">What Your Support Could Do</span>
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="support-item scroll-reveal hover-lift" data-effect="scale">
+                    <i class="fas fa-code text-3xl text-red-500 mb-3"></i>
+                    <h3 class="text-lg font-bold text-white mb-2 animate__animated animate__fadeIn">More Code Magic</h3>
+                    <p class="text-gray-400 text-sm">
+                        Your support could fuel late-night coding sessions, turning wild ideas into epic web creations.
+                    </p>
+                </div>
+                <div class="support-item scroll-reveal hover-lift" data-effect="scale">
+                    <i class="fas fa-lightbulb text-3xl text-red-500 mb-3"></i>
+                    <h3 class="text-lg font-bold text-white mb-2 animate__animated animate__fadeIn animate__delay-1s">New Ideas</h3>
+                    <p class="text-gray-400 text-sm">
+                        A little boost might spark the next big project or a fun easter egg for my portfolio.
+                    </p>
+                </div>
+                <div class="support-item scroll-reveal hover-lift" data-effect="scale">
+                    <i class="fas fa-smile text-3xl text-red-500 mb-3"></i>
+                    <h3 class="text-lg font-bold text-white mb-2 animate__animated animate__fadeIn animate__delay-2s">Spread the Joy</h3>
+                    <p class="text-gray-400 text-sm">
+                        Your donation keeps the good vibes going, inspiring me to share more with the community.
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-12 scroll-reveal animate__animated animate__zoomIn">
+                <a href="https://www.buymeacoffee.com/yourusername" target="_blank" class="donate-button inline-flex items-center justify-center group hover-lift">
+                    <i class="fas fa-star mr-2"></i>
+                    <span>Support the Fun</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <footer class="py-6 text-center scroll-reveal animate__animated animate__fadeInUp">
+        <p class="text-gray-400 text-sm">© All rights reserved - Muhammad Ibnu Fauzi <span id="current-year"></span></p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            const scrollProgress = document.querySelector('.scroll-progress');
+            function updateScrollProgress() {
+                const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrolled = (window.scrollY / windowHeight) * 100;
+                scrollProgress.style.transform = `scaleX(${scrolled / 100})`;
+            }
+            const revealElements = document.querySelectorAll('.scroll-reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+                updateScrollProgress();
+            }, { root: null, threshold: 0.1 });
+            revealElements.forEach(element => observer.observe(element));
+            window.addEventListener('scroll', updateScrollProgress);
+            updateScrollProgress();
+        });
+    </script>
+</body>
+</html>

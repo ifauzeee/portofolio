@@ -278,6 +278,28 @@
             z-index: 1000;
             transition: transform 0.1s linear;
         }
+        .coffee-button {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 2rem;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .coffee-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+        }
         @media (min-width: 768px) {
             .education-timeline {
                 display: grid;
@@ -402,7 +424,8 @@
                 font-size: 3rem;
             }
             .education-item {
-                padding: 1.5rem;
+                padding: 1rem;
+                height: 100%;
                 background: rgba(255, 0, 0, 0.05);
                 border-radius: 0.75rem;
             }
@@ -419,13 +442,20 @@
                 padding: 1rem;
                 font-size: 1rem;
             }
+            .coffee-button {
+                width: 100%;
+                max-width: 300px;
+                margin: 1.5rem auto;
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
             .marquee-item {
                 font-size: 0.9rem;
                 margin: 0 1rem;
             }
             .thank-you-section {
-                margin-top: 4rem;
-                padding-bottom: 6rem;
+                margin-top: 2rem;
+                padding-bottom: 4rem;
             }
             .projects-link {
                 margin-top: 2rem;
@@ -807,6 +837,10 @@
             <p class="text-base md:text-lg text-gray-400 mt-6 scroll-reveal">
                 Every pixel of this portfolio was crafted with passion and dedication
             </p>
+            <a href="donate.html" target="_blank" class="coffee-button inline-flex items-center justify-center group scroll-reveal hover-lift">
+                <i class="fas fa-coffee mr-2"></i>
+                <span>Buy Me a Coffee</span>
+            </a>
         </div>
     </section>
     <footer class="py-6 text-center scroll-reveal">
