@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Space Grotesk', sans-serif;
@@ -107,18 +107,26 @@
         }
         .scroll-reveal {
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease;
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .scroll-reveal.fade-up {
+            transform: translateY(100px);
+        }
+        .scroll-reveal.fade-down {
+            transform: translateY(-100px);
+        }
+        .scroll-reveal.fade-left {
+            transform: translateX(-100px);
+        }
+        .scroll-reveal.fade-right {
+            transform: translateX(100px);
+        }
+        .scroll-reveal.scale {
+            transform: scale(0.8);
         }
         .scroll-reveal.active {
             opacity: 1;
-            transform: translateY(0);
-        }
-        .scroll-reveal[data-effect="scale"] {
-            transform: scale(0.95) translateY(20px);
-        }
-        .scroll-reveal[data-effect="scale"].active {
-            transform: scale(1) translateY(0);
+            transform: translate(0) scale(1);
         }
         .scroll-progress {
             position: fixed;
@@ -146,57 +154,131 @@
             0% { transform: translateX(-50px); opacity: 0; }
             100% { transform: translateX(0); opacity: 1; }
         }
+        section {
+            min-height: 100vh !important;
+            padding: 6rem 1rem !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            isolation: isolate;
+        }
+
+        section::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent, rgba(0,0,0,0.8));
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .thank-you-section {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .thank-you-section h2 {
+            font-size: 3rem;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .thank-you-section p {
+            font-size: 1.25rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .coffee-button {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            animation: bounceIn 1s ease;
+        }
+
+        .coffee-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Add to your existing styles in the head section */
+        .bg-300 {
+            background-size: 300% 300%;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animate-gradient {
+            animation: gradient 8s ease infinite;
+        }
+
+        .tracking-tighter {
+            letter-spacing: -0.05em;
+        }
+
+        .blur-3xl {
+            filter: blur(64px);
+        }
+
         @media (max-width: 768px) {
-            body {
-                font-size: 16px;
-                line-height: 1.5;
-            }
             section {
-                padding: 2rem 1rem;
-                min-height: auto;
+                padding: 4rem 1rem !important;
+                min-height: auto !important;
             }
-            .highlight-text {
+            
+            .max-w-6xl, .max-w-4xl {
+                width: 100%;
+                padding: 0 1rem;
+            }
+
+            .thank-you-section h2 {
                 font-size: 2.5rem;
             }
-            .donate-button {
-                width: 100%;
-                max-width: 300px;
-                margin: 1.5rem auto;
-                padding: 0.8rem;
-                font-size: 0.9rem;
+
+            .thank-you-section p {
+                font-size: 1rem;
             }
-            .fun-card, .support-item {
-                padding: 1.5rem;
-            }
-        }
-        @media (max-width: 375px) {
-            .highlight-text {
-                font-size: 2rem;
-            }
-        }
-        @media (hover: hover) {
-            .hover-lift {
-                transition: transform 0.3s ease;
-            }
-            .hover-lift:hover {
-                transform: translateY(-5px);
-            }
+
+            .fixed.top-8.left-8 {
+        top: 1rem;
+        left: 1rem;
+        font-size: 0.875rem;
+    }
+
         }
     </style>
 </head>
 <body class="scroll-smooth">
-    <!-- Add this back button right after body tag -->
+    <div class="scroll-progress"></div>
+
+    <!-- Add this back button near the top of body -->
     <a href="index.html" 
        class="fixed top-8 left-8 z-50 text-white hover:text-yellow-500 transition-all duration-300 flex items-center group">
         <i class="fas fa-arrow-left mr-2 group-hover:-translate-x-2 transition-transform"></i>
         Back to Portfolio
     </a>
 
-    <div class="scroll-progress"></div>
-    <section id="donate" class="min-h-[100vh] flex flex-col justify-center items-center text-center px-4 py-12 bg-black scroll-reveal">
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6 animate__animated animate__fadeInDown">
-                <span class="name-gradient">Donation Playground</span>
+    <section id="donate" class="min-h-screen flex flex-col justify-center items-center px-4 py-24 bg-black">
+        <div class="max-w-4xl mx-auto scroll-reveal fade-up" data-stagger="true">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 parallax" data-speed="0.2">
+                <span class="name-gradient gradient-text">Donation Playground</span>
             </h1>
             <h2 class="text-3xl md:text-4xl font-bold mb-6 animate__animated animate__fadeInUp">
                 Just for <span class="highlight-text">Fun</span>
@@ -206,8 +288,9 @@
             </p>
         </div>
     </section>
-    <section class="min-h-[80vh] flex flex-col items-center px-4 py-12 bg-black scroll-reveal">
-        <div class="max-w-6xl w-full">
+
+    <section class="min-h-screen flex flex-col justify-center items-center px-4 py-24 bg-black scroll-reveal">
+        <div class="max-w-6xl w-full my-12">
             <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center animate__animated animate__bounceIn">
                 <span class="name-gradient">Why Support?</span>
             </h2>
@@ -226,27 +309,28 @@
             </div>
         </div>
     </section>
-    <section class="min-h-[80vh] flex flex-col items-center px-4 py-12 bg-black scroll-reveal">
-        <div class="max-w-6xl w-full">
+
+    <section class="min-h-screen flex flex-col justify-center items-center px-4 py-24 bg-black scroll-reveal">
+        <div class="max-w-6xl w-full my-12">
             <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center animate__animated animate__bounceIn">
                 <span class="name-gradient">What Your Support Could Do</span>
             </h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="support-item scroll-reveal hover-lift" data-effect="scale">
+                <div class="support-item scroll-reveal fade-left" data-effect="scale">
                     <i class="fas fa-code text-3xl text-red-500 mb-3"></i>
                     <h3 class="text-lg font-bold text-white mb-2 animate__animated animate__fadeIn">More Code Magic</h3>
                     <p class="text-gray-400 text-sm">
                         Your support could fuel late-night coding sessions, turning wild ideas into epic web creations.
                     </p>
                 </div>
-                <div class="support-item scroll-reveal hover-lift" data-effect="scale">
+                <div class="support-item scroll-reveal fade-up" data-effect="scale">
                     <i class="fas fa-lightbulb text-3xl text-red-500 mb-3"></i>
                     <h3 class="text-lg font-bold text-white mb-2 animate__animated animate__fadeIn animate__delay-1s">New Ideas</h3>
                     <p class="text-gray-400 text-sm">
                         A little boost might spark the next big project or a fun easter egg for my portfolio.
                     </p>
                 </div>
-                <div class="support-item scroll-reveal hover-lift" data-effect="scale">
+                <div class="support-item scroll-reveal fade-right" data-effect="scale">
                     <i class="fas fa-smile text-3xl text-red-500 mb-3"></i>
                     <h3 class="text-lg font-bold text-white mb-2 animate__animated animate__fadeIn animate__delay-2s">Spread the Joy</h3>
                     <p class="text-gray-400 text-sm">
@@ -255,16 +339,48 @@
                 </div>
             </div>
             <div class="text-center mt-12 scroll-reveal animate__animated animate__zoomIn">
-                <a href="https://www.buymeacoffee.com/yourusername" target="_blank" class="donate-button inline-flex items-center justify-center group hover-lift">
-                    <i class="fas fa-star mr-2"></i>
-                    <span>Support the Fun</span>
+                <a href="qris.htm" class="donate-button inline-flex items-center justify-center group hover-lift">
+                    <i class="fas fa-qrcode mr-2"></i>
+                    <span>Scan QRIS Here</span>
                 </a>
             </div>
         </div>
     </section>
-    <footer class="py-6 text-center scroll-reveal animate__animated animate__fadeInUp">
+
+    <section class="min-h-[80vh] flex flex-col justify-center items-center text-center px-4 py-12">
+        <div class="max-w-5xl mx-auto">
+            <div class="mb-12 relative scroll-reveal scale float">
+                <span class="block text-sm tracking-[0.5em] text-yellow-500 mb-6 uppercase font-bold animate__animated animate__fadeInDown">
+                    Thank you for
+                </span>
+                <div class="relative z-10">
+                    <h2 class="text-[8rem] md:text-[12rem] leading-none font-black tracking-tighter mb-4">
+                        <span class="block bg-gradient-to-r from-yellow-500 via-red-500 to-yellow-500 text-transparent bg-clip-text bg-300% animate-gradient">
+                            YOUR
+                        </span>
+                        <span class="block text-[7rem] md:text-[10rem] bg-gradient-to-r from-red-600 to-yellow-600 text-transparent bg-clip-text">
+                            SUPPORT
+                        </span>
+                    </h2>
+                </div>
+                <!-- Decorative glow effect -->
+                <div class="absolute -inset-2 bg-gradient-to-r from-yellow-500/20 to-red-500/20 blur-3xl opacity-30 -z-10"></div>
+            </div>
+
+            <p class="text-2xl md:text-3xl font-light text-gray-300 mt-12 leading-relaxed max-w-3xl mx-auto animate__animated animate__fadeInUp">
+                Every donation makes a difference and helps create
+                <span class="relative inline-block px-2">
+                    <span class="relative z-10 font-semibold text-yellow-400">real change</span>
+                    <span class="absolute bottom-0 left-0 w-full h-2 bg-red-500/20 -skew-x-12"></span>
+                </span>
+            </p>
+        </div>
+    </section>
+
+    <footer class="py-6 text-center scroll-reveal">
         <p class="text-gray-400 text-sm">© All rights reserved - Muhammad Ibnu Fauzi <span id="current-year"></span></p>
     </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('current-year').textContent = new Date().getFullYear();
@@ -274,16 +390,38 @@
                 const scrolled = (window.scrollY / windowHeight) * 100;
                 scrollProgress.style.transform = `scaleX(${scrolled / 100})`;
             }
+            // Enhanced scroll reveal
             const revealElements = document.querySelectorAll('.scroll-reveal');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
+                        
+                        // Add staggered delay for child elements
+                        if (entry.target.hasAttribute('data-stagger')) {
+                            const children = entry.target.children;
+                            Array.from(children).forEach((child, index) => {
+                                child.style.transitionDelay = `${index * 0.1}s`;
+                            });
+                        }
                     }
                 });
-                updateScrollProgress();
-            }, { root: null, threshold: 0.1 });
+            }, {
+                root: null,
+                threshold: 0.1,
+                rootMargin: '-50px'
+            });
+
             revealElements.forEach(element => observer.observe(element));
+
+            // Smooth parallax scroll effect
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                document.querySelectorAll('.parallax').forEach(element => {
+                    const speed = element.getAttribute('data-speed') || 0.5;
+                    element.style.transform = `translateY(${scrolled * speed}px)`;
+                });
+            });
             window.addEventListener('scroll', updateScrollProgress);
             updateScrollProgress();
         });
