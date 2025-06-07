@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Muhammad Ibnu Fauzi - Donation Playground</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Space Grotesk', sans-serif;
@@ -155,15 +154,14 @@
             100% { transform: translateX(0); opacity: 1; }
         }
         section {
-            min-height: 100vh !important;
-            padding: 6rem 1rem !important;
+            min-height: 100vh;
+            padding: 6rem 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             isolation: isolate;
         }
-
         section::after {
             content: '';
             position: absolute;
@@ -172,137 +170,161 @@
             z-index: -1;
             pointer-events: none;
         }
-
-        .thank-you-section {
-            font-family: 'Playfair Display', serif;
-        }
-
-        .thank-you-section h2 {
-            font-size: 3rem;
-            font-weight: 600;
-            line-height: 1.2;
-        }
-
-        .thank-you-section p {
-            font-size: 1.25rem;
-            font-weight: 400;
-            line-height: 1.6;
-        }
-
-        .coffee-button {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            font-weight: 500;
-            background: linear-gradient(45deg, #FFD700, #FFA500);
-            color: #000;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.4s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            animation: bounceIn 1s ease;
-        }
-
-        .coffee-button:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
-        }
-
-        /* Add to your existing styles in the head section */
         .bg-300 {
             background-size: 300% 300%;
         }
-        
         @keyframes gradient {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
         .animate-gradient {
             animation: gradient 8s ease infinite;
         }
-
         .tracking-tighter {
             letter-spacing: -0.05em;
         }
-
         .blur-3xl {
             filter: blur(64px);
         }
-
+        .back-portfolio {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 1000;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .back-portfolio:hover {
+            color: #FFD700;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .back-portfolio i {
+            margin-right: 0.75rem;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+        .back-portfolio:hover i {
+            transform: translateX(-4px);
+        }
+        img {
+            object-fit: cover;
+        }
         @media (max-width: 768px) {
-            section {
-                padding: 4rem 1rem !important;
-                min-height: auto !important;
+            body {
+                font-size: 16px;
             }
-            
-            .max-w-6xl, .max-w-4xl {
+            section {
+                padding: 4rem 1rem;
+                min-height: auto;
+            }
+            .max-w-6xl, .max-w-4xl, .max-w-5xl {
                 width: 100%;
                 padding: 0 1rem;
             }
-
-            .thank-you-section h2 {
+            h1 {
                 font-size: 2.5rem;
             }
-
-            .thank-you-section p {
-                font-size: 1rem;
+            h2 {
+                font-size: 2rem;
             }
-
-            .fixed.top-8.left-8 {
-        top: 1rem;
-        left: 1rem;
-        font-size: 0.875rem;
-    }
-
+            h3 {
+                font-size: 1.5rem;
+            }
+            p {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+            .highlight-text {
+                font-size: 2.5rem;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .donate-button {
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+                min-width: 44px;
+                min-height: 44px;
+            }
+            .fun-card {
+                padding: 1.5rem;
+            }
+            .support-item {
+                padding: 1rem;
+            }
+            .support-item i {
+                font-size: 1.5rem;
+            }
+            .back-portfolio, .hamburger-menu, .nav-menu {
+                display: none;
+            }
+        }
+        @media (min-width: 769px) {
+            .hamburger-menu, .nav-menu {
+                display: none;
+            }
         }
     </style>
 </head>
 <body class="scroll-smooth">
     <div class="scroll-progress"></div>
 
-    <!-- Add this back button near the top of body -->
-    <a href="index.html" 
-       class="fixed top-8 left-8 z-50 text-white hover:text-yellow-500 transition-all duration-300 flex items-center group">
-        <i class="fas fa-arrow-left mr-2 group-hover:-translate-x-2 transition-transform"></i>
-        Back to Portfolio
+    <!-- Updated back to portfolio button -->
+    <a href="index.html" class="back-portfolio">
+        <i class="fas fa-arrow-left"></i>
+        <span>Back to Portfolio</span>
     </a>
+
+    <div class="hamburger-menu">
+        <i class="fas fa-bars"></i>
+    </div>
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="#donate"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="#why-support"><i class="fas fa-heart"></i>Why Support</a></li>
+            <li><a href="#support-could-do"><i class="fas fa-star"></i>Impact</a></li>
+            <li><a href="qris.htm"><i class="fas fa-qrcode"></i>Donate</a></li>
+        </ul>
+    </nav>
 
     <section id="donate" class="min-h-screen flex flex-col justify-center items-center px-4 py-24 bg-black">
         <div class="max-w-4xl mx-auto scroll-reveal fade-up" data-stagger="true">
             <h1 class="text-4xl md:text-5xl font-bold mb-6 parallax" data-speed="0.2">
-                <span class="name-gradient gradient-text">Donation Playground</span>
+                <span class="name-gradient">Donation Playground</span>
             </h1>
-            <h2 class="text-3xl md:text-4xl font-bold mb-6 animate__animated animate__fadeInUp">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">
                 Just for <span class="highlight-text">Fun</span>
             </h2>
-            <p class="text-base md:text-lg text-gray-400 mb-8 scroll-reveal animate__animated animate__zoomIn">
+            <p class="text-base md:text-lg text-gray-400 mb-8 scroll-reveal">
                 Welcome to my digital sandbox where I play with code and creativity! If you’re feeling extra awesome and want to toss a virtual coin to my coding adventures, I’d be over the moon!
             </p>
         </div>
     </section>
 
-    <section class="min-h-screen flex flex-col justify-center items-center px-4 py-24 bg-black scroll-reveal">
+    <section id="why-support" class="min-h-screen flex flex-col justify-center items-center px-4 py-24 bg-black scroll-reveal">
         <div class="max-w-6xl w-full my-12">
-            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center animate__animated animate__bounceIn">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
                 <span class="name-gradient">Why Support?</span>
             </h2>
-            <div class="fun-card scroll-reveal hover-lift" data-effect="scale">
-                <h3 class="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-red-500 mb-6 animate__animated animate__fadeIn">
+            <div class="fun-card scroll-reveal">
+                <h3 class="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-red-500 mb-6">
                     Supporting Digital Innovation
                 </h3>
                 <div class="space-y-6">
-                    <p class="text-gray-300 text-lg leading-relaxed animate__animated animate__fadeInUp">
+                    <p class="text-gray-300 text-lg leading-relaxed">
                         Welcome to my creative corner of the web! Here, every line of code is crafted with passion and purpose. Your support helps fuel the development of innovative projects and enables me to continue pushing the boundaries of what's possible in web development.
                     </p>
-                    <p class="text-gray-400 text-base italic animate__animated animate__fadeInUp animate__delay-1s">
+                    <p class="text-gray-400 text-base italic">
                         Together, we can turn creative ideas into reality and make the digital world more exciting. Every contribution, no matter the size, helps maintain this creative momentum. 🚀
                     </p>
                 </div>
@@ -310,36 +332,36 @@
         </div>
     </section>
 
-    <section class="min-h-screen flex flex-col justify-center items-center px-4 py-24 bg-black scroll-reveal">
+    <section id="support-could-do" class="min-h-screen flex flex-col justify-center items-center px-4 py-24 bg-black scroll-reveal">
         <div class="max-w-6xl w-full my-12">
-            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center animate__animated animate__bounceIn">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
                 <span class="name-gradient">What Your Support Could Do</span>
             </h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="support-item scroll-reveal fade-left" data-effect="scale">
+                <div class="support-item scroll-reveal fade-left">
                     <i class="fas fa-code text-3xl text-red-500 mb-3"></i>
-                    <h3 class="text-lg font-bold text-white mb-2 animate__animated animate__fadeIn">More Code Magic</h3>
+                    <h3 class="text-lg font-bold text-white mb-2">More Code Magic</h3>
                     <p class="text-gray-400 text-sm">
                         Your support could fuel late-night coding sessions, turning wild ideas into epic web creations.
                     </p>
                 </div>
-                <div class="support-item scroll-reveal fade-up" data-effect="scale">
+                <div class="support-item scroll-reveal fade-up">
                     <i class="fas fa-lightbulb text-3xl text-red-500 mb-3"></i>
-                    <h3 class="text-lg font-bold text-white mb-2 animate__animated animate__fadeIn animate__delay-1s">New Ideas</h3>
+                    <h3 class="text-lg font-bold text-white mb-2">New Ideas</h3>
                     <p class="text-gray-400 text-sm">
                         A little boost might spark the next big project or a fun easter egg for my portfolio.
                     </p>
                 </div>
-                <div class="support-item scroll-reveal fade-right" data-effect="scale">
+                <div class="support-item scroll-reveal fade-right">
                     <i class="fas fa-smile text-3xl text-red-500 mb-3"></i>
-                    <h3 class="text-lg font-bold text-white mb-2 animate__animated animate__fadeIn animate__delay-2s">Spread the Joy</h3>
+                    <h3 class="text-lg font-bold text-white mb-2">Spread the Joy</h3>
                     <p class="text-gray-400 text-sm">
                         Your donation keeps the good vibes going, inspiring me to share more with the community.
                     </p>
                 </div>
             </div>
-            <div class="text-center mt-12 scroll-reveal animate__animated animate__zoomIn">
-                <a href="qris.htm" class="donate-button inline-flex items-center justify-center group hover-lift">
+            <div class="text-center mt-12 scroll-reveal">
+                <a href="qris.htm" class="donate-button inline-flex items-center justify-center">
                     <i class="fas fa-qrcode mr-2"></i>
                     <span>Scan QRIS Here</span>
                 </a>
@@ -349,8 +371,8 @@
 
     <section class="min-h-[80vh] flex flex-col justify-center items-center text-center px-4 py-12">
         <div class="max-w-5xl mx-auto">
-            <div class="mb-12 relative scroll-reveal scale float">
-                <span class="block text-sm tracking-[0.5em] text-yellow-500 mb-6 uppercase font-bold animate__animated animate__fadeInDown">
+            <div class="mb-12 relative scroll-reveal scale">
+                <span class="block text-sm tracking-[0.5em] text-yellow-500 mb-6 uppercase font-bold">
                     Thank you for
                 </span>
                 <div class="relative z-10">
@@ -363,11 +385,9 @@
                         </span>
                     </h2>
                 </div>
-                <!-- Decorative glow effect -->
                 <div class="absolute -inset-2 bg-gradient-to-r from-yellow-500/20 to-red-500/20 blur-3xl opacity-30 -z-10"></div>
             </div>
-
-            <p class="text-2xl md:text-3xl font-light text-gray-300 mt-12 leading-relaxed max-w-3xl mx-auto animate__animated animate__fadeInUp">
+            <p class="text-2xl md:text-3xl font-light text-gray-300 mt-12 leading-relaxed max-w-3xl mx-auto">
                 Every donation makes a difference and helps create
                 <span class="relative inline-block px-2">
                     <span class="relative z-10 font-semibold text-yellow-400">real change</span>
@@ -390,40 +410,25 @@
                 const scrolled = (window.scrollY / windowHeight) * 100;
                 scrollProgress.style.transform = `scaleX(${scrolled / 100})`;
             }
-            // Enhanced scroll reveal
             const revealElements = document.querySelectorAll('.scroll-reveal');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
-                        
-                        // Add staggered delay for child elements
-                        if (entry.target.hasAttribute('data-stagger')) {
-                            const children = entry.target.children;
-                            Array.from(children).forEach((child, index) => {
-                                child.style.transitionDelay = `${index * 0.1}s`;
-                            });
+                        if (entry.target.classList.contains('fade-up')) {
+                            entry.target.style.animationDelay = '0.2s';
+                        } else if (entry.target.classList.contains('fade-down')) {
+                            entry.target.style.animationDelay = '0.2s';
+                        } else if (entry.target.classList.contains('fade-left')) {
+                            entry.target.style.animationDelay = '0.2s';
+                        } else if (entry.target.classList.contains('fade-right')) {
+                            entry.target.style.animationDelay = '0.2s';
                         }
                     }
                 });
-            }, {
-                root: null,
-                threshold: 0.1,
-                rootMargin: '-50px'
-            });
-
-            revealElements.forEach(element => observer.observe(element));
-
-            // Smooth parallax scroll effect
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                document.querySelectorAll('.parallax').forEach(element => {
-                    const speed = element.getAttribute('data-speed') || 0.5;
-                    element.style.transform = `translateY(${scrolled * speed}px)`;
-                });
-            });
+            }, { threshold: 0.1 });
+            revealElements.forEach((el) => observer.observe(el));
             window.addEventListener('scroll', updateScrollProgress);
-            updateScrollProgress();
         });
     </script>
 </body>
