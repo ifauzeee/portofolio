@@ -163,6 +163,7 @@
         .download-link {
             color: rgba(255, 255, 255, 0.7);
             transition: all 0.3s ease;
+            position: relative;
         }
         .download-link::after {
             content: '';
@@ -319,6 +320,58 @@
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
         }
+
+        /* Loading Screen Styles */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loading-spinner {
+            width: 80px;
+            height: 80px;
+            border: 8px solid rgba(255, 0, 0, 0.2);
+            border-top: 8px solid #FF0000;
+            border-radius: 50%;
+            animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            opacity: 0;
+            animation: fadeInText 1s ease-in-out forwards 0.5s; /* Delay for text */
+        }
+
+        @keyframes fadeInText {
+            to { opacity: 1; }
+        }
+
+        /* Responsive Adjustments */
         @media (min-width: 768px) {
             .education-timeline {
                 display: grid;
@@ -519,6 +572,11 @@
     </style>
 </head>
 <body class="scroll-smooth">
+    <div id="loading-screen">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Loading Awesome Content...</div>
+    </div>
+
     <div class="scroll-progress"></div>
     <section id="home" class="hero-section scroll-reveal" data-effect="fade-up">
         <div class="content-container">
@@ -619,7 +677,7 @@
                     <div class="education-content">
                         <h3>POLITEKNIK NEGERI JAKARTA</h3>
                         <p>Higher Education</p>
-                        <p>Pursuing a degree in Information Technology, focusing on software development and data science while exploring new technological horizons.</p>
+                        <p>Pursuing a degree in Information Technology, focusing on software development and data science and exploring new technological horizons.</p>
                     </div>
                 </div>
                 <div class="education-item scroll-reveal" data-effect="scale">
@@ -657,9 +715,9 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="scroll-reveal hover-lift" data-effect="scale">
                     <img src="./My Certifications/Screenshot 2025-06-06 at 20-06-16 _certificate_muhammad-ibnu-fauzi-tik23-stu-pnj-ac-id_f0ab09fa-5bb0-4f7a-b3fe-fb1809f199f1_2.pdf.png"
-                         onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250?text=Certificate';"
-                         alt="IoT Certificate"
-                         class="w-full max-h-56 object-contain bg-gray-900 rounded-lg mb-3">
+                        onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250?text=Certificate';"
+                        alt="IoT Certificate"
+                        class="w-full max-h-56 object-contain bg-gray-900 rounded-lg mb-3">
                     <h3 class="text-lg font-bold text-red-500 mb-2">Introduction to IoT</h3>
                     <p class="text-gray-400 text-sm mb-3">by Cisco</p>
                     <a href="#" class="text-white hover:text-red-500 transition-colors duration-300 flex items-center text-sm">
@@ -668,9 +726,9 @@
                 </div>
                 <div class="scroll-reveal hover-lift" data-effect="scale">
                     <img src="./My Certifications/Screenshot 2025-06-06 at 20-12-21 Python_Essentials_1_certificate_muhammad-ibnu-fauzi-tik23-stu-pnj-ac-id_f0e9a51b-40ba-49bc-9eba-0bb5d40034a1.pdf.png"
-                         onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250?text=Certificate';"
-                         alt="Python Certificate"
-                         class="w-full max-h-56 object-contain bg-gray-900 rounded-lg mb-3">
+                        onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250?text=Certificate';"
+                        alt="Python Certificate"
+                        class="w-full max-h-56 object-contain bg-gray-900 rounded-lg mb-3">
                     <h3 class="text-lg font-bold text-red-500 mb-2">Python Essentials 1</h3>
                     <p class="text-gray-400 text-sm mb-3">by Cisco</p>
                     <a href="#" class="text-white hover:text-red-500 transition-colors duration-300 flex items-center text-sm">
@@ -679,66 +737,66 @@
                 </div>
                 <div class="scroll-reveal hover-lift" data-effect="scale">
                     <img src="./My Certifications/Screenshot 2025-06-06 at 20-33-20 Profile freeCodeCamp.org.png"
-                         onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250?text=Certificate';"
-                         alt="Web Design Certificate"
-                         class="w-full max-h-56 object-contain bg-gray-900 rounded-lg mb-3">
+                        onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250?text=Certificate';"
+                        alt="Web Design Certificate"
+                        class="w-full max-h-56 object-contain bg-gray-900 rounded-lg mb-3">
                     <h3 class="text-lg font-bold text-red-500 mb-2">Responsive Web Design</h3>
                     <p class="text-gray-400 text-sm mb-3">by freeCodeCamp</p>
                     <a href="https://www.freecodecamp.org/certification/fcc-c43ed584-9373-471e-ba26-fa7d2cf9f876/javascript-algorithms-and-data-structures-v8"
-                       target="_blank"
-                       class="text-white hover:text-red-500 transition-colors duration-300 flex items-center text-sm">
+                        target="_blank"
+                        class="text-white hover:text-red-500 transition-colors duration-300 flex items-center text-sm">
                         View Certificate <i class="fas fa-external-link-alt ml-2"></i>
                     </a>
                 </div>
                 <div class="scroll-reveal hover-lift" data-effect="scale">
                     <img src="./My Certifications/Screenshot 2025-06-06 at 20-27-11 .png"
-                         onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250?text=Certificate';"
-                         alt="JavaScript Certificate"
-                         class="w-full max-h-56 object-contain bg-gray-900 rounded-lg mb-3">
+                        onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250?text=Certificate';"
+                        alt="JavaScript Certificate"
+                        class="w-full max-h-56 object-contain bg-gray-900 rounded-lg mb-3">
                     <h3 class="text-lg font-bold text-red-500 mb-2">JavaScript Algorithms and Data Structures</h3>
                     <p class="text-gray-400 text-sm mb-3">by freeCodeCamp</p>
                     <a href="https://www.freecodecamp.org/certification/fcc-c43ed584-9373-471e-ba26-fa7d2cf9f876/javascript-algorithms-and-data-structures-v8"
-                       target="_blank"
-                       class="text-white hover:text-red-500 transition-colors duration-300 flex items-center text-sm">
+                        target="_blank"
+                        class="text-white hover:text-red-500 transition-colors duration-300 flex items-center text-sm">
                         View Certificate <i class="fas fa-external-link-alt ml-2"></i>
                     </a>
                 </div>
                 <div class="scroll-reveal hover-lift" data-effect="scale">
                     <img src="./My Certifications/image.png"
-                         onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250?text=Certificate';"
-                         alt="Data Visualization Certificate"
-                         class="w-full max-h-56 object-contain bg-gray-900 rounded-lg mb-3">
+                        onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250?text=Certificate';"
+                        alt="Data Visualization Certificate"
+                        class="w-full max-h-56 object-contain bg-gray-900 rounded-lg mb-3">
                     <h3 class="text-lg font-bold text-red-500 mb-2">Data Visualization</h3>
                     <p class="text-gray-400 text-sm mb-3">by freeCodeCamp</p>
                     <a href="https://www.freecodecamp.org/certification/fcc-c43ed584-9373-471e-ba26-fa7d2cf9f876/data-visualization"
-                       target="_blank"
-                       class="text-white hover:text-red-500 transition-colors duration-300 flex items-center text-sm">
+                        target="_blank"
+                        class="text-white hover:text-red-500 transition-colors duration-300 flex items-center text-sm">
                         View Certificate <i class="fas fa-external-link-alt ml-2"></i>
                     </a>
                 </div>
                 <div class="scroll-reveal hover-lift" data-effect="scale">
                     <img src="./My Certifications/1 (2).png"
-                         onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250?text=Certificate';"
-                         alt="Scientific Computing Certificate"
-                         class="w-full max-h-56 object-contain bg-gray-900 rounded-lg mb-3">
+                        onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250?text=Certificate';"
+                        alt="Scientific Computing Certificate"
+                        class="w-full max-h-56 object-contain bg-gray-900 rounded-lg mb-3">
                     <h3 class="text-lg font-bold text-red-500 mb-2">Scientific Computing with Python</h3>
                     <p class="text-gray-400 text-sm mb-3">by freeCodeCamp</p>
                     <a href="https://www.freecodecamp.org/fcc-c43ed584-9373-471e-ba26-fa7d2cf9f876"
-                       target="_blank"
-                       class="text-white hover:text-red-500 transition-colors duration-300 flex items-center text-sm">
+                        target="_blank"
+                        class="text-white hover:text-red-500 transition-colors duration-300 flex items-center text-sm">
                         View Certificate <i class="fas fa-external-link-alt ml-2"></i>
                     </a>
                 </div>
                 <div class="scroll-reveal hover-lift" data-effect="scale">
                     <img src="./My Certifications/Screenshot 2025-06-06 at 20-42-02 Coursera 3TFXQKRRTYFJ.pdf.png"
-                         onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250?text=Certificate';"
-                         alt="WordPress Certificate"
-                         class="w-full max-h-56 object-contain bg-gray-900 rounded-lg mb-3">
+                        onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250?text=Certificate';"
+                        alt="WordPress Certificate"
+                        class="w-full max-h-56 object-contain bg-gray-900 rounded-lg mb-3">
                     <h3 class="text-lg font-bold text-red-500 mb-2">Build a free website with WordPress</h3>
                     <p class="text-gray-400 text-sm mb-3">by Coursera Project Network</p>
                     <a href="https://coursera.org/share/f8c6e59d1b1aa9ac411ee8a03ea9c55b"
-                       target="_blank"
-                       class="text-white hover:text-red-500 transition-colors duration-300 flex items-center text-sm">
+                        target="_blank"
+                        class="text-white hover:text-red-500 transition-colors duration-300 flex items-center text-sm">
                         View Certificate <i class="fas fa-external-link-alt ml-2"></i>
                     </a>
                 </div>
@@ -834,8 +892,8 @@
                     </div>
                     <div class="pt-3">
                         <a href="https://stm-gotham.rf.gd/?i=1" 
-                           target="_blank" 
-                           class="inline-flex items-center px-5 py-2.5 text-base bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-300 group hover-lift">
+                            target="_blank" 
+                            class="inline-flex items-center px-5 py-2.5 text-base bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-300 group hover-lift">
                             <span>Visit Live Site</span>
                             <i class="fas fa-external-link-alt ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
                         </a>
@@ -868,7 +926,7 @@
                     </div>
                     <div class="pt-3">
                         <a href="univ-network-fetcher.html" 
-                           class="inline-flex items-center px-5 py-2.5 text-base bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-300 group hover-lift">
+                            class="inline-flex items-center px-5 py-2.5 text-base bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-300 group hover-lift">
                             <span>View Project Details</span>
                             <i class="fas fa-external-link-alt ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
                         </a>
@@ -898,8 +956,33 @@
                     </div>
                     <div class="pt-3">
                         <a href="https://github.com/ifauzeee/zee-downloader-bot" 
-                           target="_blank" 
-                           class="inline-flex items-center px-5 py-2.5 text-base bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-300 group hover-lift">
+                            target="_blank" 
+                            class="inline-flex items-center px-5 py-2.5 text-base bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-300 group hover-lift">
+                            <span>View on GitHub</span>
+                            <i class="fas fa-external-link-alt ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="max-w-4xl mx-auto mt-16 scroll-reveal" data-effect="scale">
+                <div class="space-y-5">
+                    <h3 class="text-2xl font-bold text-red-500">Library Management System</h3>
+                    <p class="text-gray-300 text-base leading-relaxed">
+                        A robust Java Swing desktop application designed for efficient library management. Features include secure multi-role authentication, real-time book inventory tracking, streamlined borrowing and returning processes with admin approval workflows, and comprehensive borrower management, all powered by a MySQL database with jBCrypt for secure password hashing.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">Java</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">Swing</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">MySQL</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">JDBC</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">FlatLaf</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">jBCrypt</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">Desktop App</span>
+                    </div>
+                    <div class="pt-3">
+                        <a href="https://github.com/ifauzeee/LibraryManagementSystem" 
+                            target="_blank" 
+                            class="inline-flex items-center px-5 py-2.5 text-base bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-300 group hover-lift">
                             <span>View on GitHub</span>
                             <i class="fas fa-external-link-alt ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
                         </a>
@@ -908,14 +991,14 @@
             </div>
             <div class="text-center mt-12 scroll-reveal projects-link">
                 <a href="https://www.linkedin.com/in/muhammad-ibnu-fauzi-66842a2a7/details/projects/" 
-                   target="_blank" 
-                   class="inline-flex items-center px-5 py-2.5 text-base text-white hover:text-red-500 transition-all duration-300 group hover-lift">
+                    target="_blank" 
+                    class="inline-flex items-center px-5 py-2.5 text-base text-white hover:text-red-500 transition-all duration-300 group hover-lift">
                     <i class="fab fa-linkedin text-lg mr-2"></i>
                     <span>More projects on LinkedIn</span>
                     <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform duration-300"></i>
                 </a>
                 <a href="projects.html" 
-                   class="inline-flex items-center px-5 py-2.5 text-base text-white hover:text-red-500 transition-all duration-300 group hover-lift">
+                    class="inline-flex items-center px-5 py-2.5 text-base text-white hover:text-red-500 transition-all duration-300 group hover-lift">
                     <i class="fas fa-folder-open text-lg mr-2"></i>
                     <span>View All Projects</span>
                     <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform duration-300"></i>
@@ -950,8 +1033,8 @@
                     </div>
                     <div class="pt-3">
                         <a href="https://ifauzeee.github.io/Zexas/" 
-                           target="_blank" 
-                           class="inline-flex items-center px-5 py-2.5 text-base bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-300 group hover-lift">
+                            target="_blank" 
+                            class="inline-flex items-center px-5 py-2.5 text-base bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-300 group hover-lift">
                             <span>Visit Live Site</span>
                             <i class="fas fa-external-link-alt ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
                         </a>
@@ -1009,6 +1092,16 @@
             window.addEventListener('scroll', updateScrollProgress);
             window.addEventListener('resize', updateScrollProgress);
             updateScrollProgress();
+
+            // Loading screen logic
+            const loadingScreen = document.getElementById('loading-screen');
+            window.addEventListener('load', () => {
+                setTimeout(() => { // Optional: Add a minimum display time for the loading screen
+                    loadingScreen.classList.add('hidden');
+                    document.body.style.overflow = 'auto'; // Re-enable scrolling
+                }, 1000); // 1 second delay
+            });
+            document.body.style.overflow = 'hidden'; // Disable scrolling during loading
         });
     </script>
 </body>
