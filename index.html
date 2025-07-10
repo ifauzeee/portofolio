@@ -320,8 +320,6 @@
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
         }
-
-        /* Loading Screen Styles */
         #loading-screen {
             position: fixed;
             top: 0;
@@ -338,12 +336,10 @@
             opacity: 1;
             visibility: visible;
         }
-
         #loading-screen.hidden {
             opacity: 0;
             visibility: hidden;
         }
-
         .loading-spinner {
             width: 80px;
             height: 80px;
@@ -352,26 +348,21 @@
             border-radius: 50%;
             animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
         }
-
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-
         .loading-text {
             color: #fff;
             font-size: 1.5rem;
             font-weight: 600;
             margin-top: 2rem;
             opacity: 0;
-            animation: fadeInText 1s ease-in-out forwards 0.5s; /* Delay for text */
+            animation: fadeInText 1s ease-in-out forwards 0.5s;
         }
-
         @keyframes fadeInText {
             to { opacity: 1; }
         }
-
-        /* Responsive Adjustments */
         @media (min-width: 768px) {
             .education-timeline {
                 display: grid;
@@ -576,7 +567,6 @@
         <div class="loading-spinner"></div>
         <div class="loading-text">Loading Awesome Content...</div>
     </div>
-
     <div class="scroll-progress"></div>
     <section id="home" class="hero-section scroll-reveal" data-effect="fade-up">
         <div class="content-container">
@@ -815,14 +805,14 @@
                         <h3 class="text-lg font-bold text-white">Programming & Software Development</h3>
                     </div>
                     <ul class="space-y-1.5 text-gray-400 text-sm">
-                        <li class="hover:text-red-500 transition-colors duration-300">Python</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">R Programming</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Scala</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">JavaScript (ES6+)</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Python (Flask, Asyncio)</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Java (Swing, FlatLaf)</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">PHP</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">JavaScript (ES6+, Chart.js, Leaflet.js)</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Bash Scripting</li>
                         <li class="hover:text-red-500 transition-colors duration-300">Object-Oriented Programming</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Functional Programming</li>
                         <li class="hover:text-red-500 transition-colors duration-300">Algorithmic Thinking</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Design, Develop, and Debug Scripts</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Debugging & Error Handling</li>
                     </ul>
                 </div>
                 <div class="scroll-reveal hover-lift" data-effect="scale">
@@ -832,13 +822,13 @@
                     </div>
                     <ul class="space-y-1.5 text-gray-400 text-sm">
                         <li class="hover:text-red-500 transition-colors duration-300">HTML5</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">CSS3</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Flexbox & CSS Grid</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">CSS3 (Tailwind CSS)</li>
                         <li class="hover:text-red-500 transition-colors duration-300">Responsive Web Design</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Flexbox & CSS Grid</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">AJAX & Asynchronous Requests</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Web Security (CSRF, Input Validation)</li>
                         <li class="hover:text-red-500 transition-colors duration-300">WordPress</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Mobile-First Design</li>
                         <li class="hover:text-red-500 transition-colors duration-300">Accessibility (a11y)</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Content Management</li>
                     </ul>
                 </div>
                 <div class="scroll-reveal hover-lift" data-effect="scale">
@@ -847,14 +837,13 @@
                         <h3 class="text-lg font-bold text-white">Data Science & Visualization</h3>
                     </div>
                     <ul class="space-y-1.5 text-gray-400 text-sm">
-                        <li class="hover:text-red-500 transition-colors duration-300">Data Science</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Data Visualization</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">D3.js</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Statistics</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">NumPy</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Data Visualization (Chart.js)</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">SQLAlchemy & SQLite</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">MySQL</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Data Processing & Cleaning</li>
                         <li class="hover:text-red-500 transition-colors duration-300">JSON & CSV Data Handling</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Chart Creation</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Scientific Computing</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Geolocation API Integration</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Interactive Chart Creation</li>
                     </ul>
                 </div>
                 <div class="scroll-reveal hover-lift" data-effect="scale">
@@ -863,11 +852,13 @@
                         <h3 class="text-lg font-bold text-white">Digital & Emerging Technologies</h3>
                     </div>
                     <ul class="space-y-1.5 text-gray-400 text-sm">
-                        <li class="hover:text-red-500 transition-colors duration-300">Digital Transformation</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Network Monitoring (Ping, Traceroute)</li>
                         <li class="hover:text-red-500 transition-colors duration-300">Internet of Things (IoT)</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Data Processing & Cleaning</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">Interactive Visuals</li>
-                        <li class="hover:text-red-500 transition-colors duration-300">PWID-B0159400</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Telegram Bot API</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Media Downloading (yt-dlp, gallery-dl)</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">Docker & PM2 Deployment</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">RClone Integration</li>
+                        <li class="hover:text-red-500 transition-colors duration-300">SSL/TLS Certificate Analysis</li>
                     </ul>
                 </div>
             </div>
@@ -880,15 +871,17 @@
             </h2>
             <div class="max-w-4xl mx-auto scroll-reveal" data-effect="scale">
                 <div class="space-y-5">
-                    <h3 class="text-2xl font-bold text-red-500">Website PPDB STM - Gotham City</h3>
+                    <h3 class="text-2xl font-bold text-red-500">STM Gotham City Academic Management System</h3>
                     <p class="text-gray-300 text-base leading-relaxed">
-                        A comprehensive student registration website for STM Gotham City featuring modern design and intuitive user interface. This project showcases responsive design principles and seamless user experience across all devices.
+                        A web-based examination and student registration management system developed using PHP, MySQL, and TailwindCSS. It allows administrators to create, view, edit, and delete exam questions categorized by department, while also managing student registration data in a secure and user-friendly interface. The system features a modern dashboard with real-time statistics of registered students, including verification status, popular programs, and registration trends through interactive charts. Administrators can verify or delete student records via asynchronous requests, ensuring smooth user experience. The application implements security best practices such as CSRF protection, input validation, and session-based authentication. The UI is designed with a dark theme, responsive layout, and interactive elements like confirmation modals and sortable data tables.
                     </p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">HTML</span>
-                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">CSS</span>
                         <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">PHP</span>
                         <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">MySQL</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">Tailwind CSS</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">JavaScript</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">SweetAlert2</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">Web Security</span>
                     </div>
                     <div class="pt-3">
                         <a href="https://stm-gotham.rf.gd/?i=1" 
@@ -902,27 +895,39 @@
             </div>
             <div class="max-w-4xl mx-auto mt-16 scroll-reveal" data-effect="scale">
                 <div class="space-y-5">
-                    <h3 class="text-2xl font-bold text-red-500">Universal Network Resource Fetcher</h3>
+                    <h3 class="text-2xl font-bold text-red-500">Network Dashboard (NetMon)</h3>
                     <p class="text-gray-300 text-base leading-relaxed">
-                        An interactive text-based interface (TUI) shell script that provides various network utilities in one tool. 
-                        The project includes multiple networking features:
+                        A modern network monitoring dashboard built with Python, Flask, and Chart.js. NetMon allows users to monitor real-time network speed, run internet speed tests, view public IP geolocation on an interactive map, and track historical network data with filtering and export features. The system uses SQLite for data storage and SQLAlchemy for ORM, combined with responsive HTML, CSS, and JavaScript for a clean and intuitive user interface. Supports light and dark themes for a seamless experience across environments.
                     </p>
-                    <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                        <li>file downloading capabilities</li>
-                        <li>Public IP address checking</li>
-                        <li>Network interface monitoring</li>
-                        <li>Latency measurement tools</li>
-                        <li>Port scanning functionality</li>
-                        <li>Traceroute implementation</li>
-                        <li>Google Drive direct link converter</li>
-                        <li>YouTube video downloader</li>
-                    </ul>
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">Shell Script</span>
-                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">Networking</span>
-                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">TUI</span>
-                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">Linux</span>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">Python</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">Flask</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">Chart.js</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">Leaflet.js</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">SQLAlchemy</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">SQLite</span>
+                    </div>
+                    <div class="pt-3">
+                        <a href="network-dashboard.html" 
+                            class="inline-flex items-center px-5 py-2.5 text-base bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-300 group hover-lift">
+                            <span>View Project Details</span>
+                            <i class="fas fa-external-link-alt ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="max-w-4xl mx-auto mt-16 scroll-reveal" data-effect="scale">
+                <div class="space-y-5">
+                    <h3 class="text-2xl font-bold text-red-500">Universal Network Resource Fetcher (UNRF)</h3>
+                    <p class="text-gray-300 text-base leading-relaxed">
+                        A powerful Bash-based toolkit for network resource fetching, monitoring, and logging, optimized for WSL Kali Linux. This TUI script offers features like file downloads (including Google Drive), public IP retrieval, real-time network interface monitoring, latency testing, port scanning, SSL certificate checking, traceroute, and YouTube video downloading with selectable formats. All activities are logged with timestamps for auditing and troubleshooting.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
                         <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">Bash</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">Network Monitoring</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">curl</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">yt-dlp</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">OpenSSL</span>
                     </div>
                     <div class="pt-3">
                         <a href="univ-network-fetcher.html" 
@@ -935,49 +940,16 @@
             </div>
             <div class="max-w-4xl mx-auto mt-16 scroll-reveal" data-effect="scale">
                 <div class="space-y-5">
-                    <h3 class="text-2xl font-bold text-red-500">Zee Downloader Bot</h3>
-                    <p class="text-gray-300 text-base leading-relaxed">
-                        A Telegram bot and web application for downloading YouTube and TikTok videos with quality selection and real-time download progress. Features a user-friendly interface and robust error handling.
-                    </p>
-                    <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                        <li>Telegram bot integration with inline quality selection</li>
-                        <li>Web interface built with Flask</li>
-                        <li>Real-time download progress tracking</li>
-                        <li>Support for YouTube and TikTok video downloads</li>
-                        <li>Cookie-based authentication for YouTube</li>
-                    </ul>
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">Python</span>
-                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">Flask</span>
-                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">Telegram Bot API</span>
-                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">yt-dlp</span>
-                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">HTML</span>
-                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">CSS</span>
-                    </div>
-                    <div class="pt-3">
-                        <a href="https://github.com/ifauzeee/zee-downloader-bot" 
-                            target="_blank" 
-                            class="inline-flex items-center px-5 py-2.5 text-base bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-300 group hover-lift">
-                            <span>View on GitHub</span>
-                            <i class="fas fa-external-link-alt ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="max-w-4xl mx-auto mt-16 scroll-reveal" data-effect="scale">
-                <div class="space-y-5">
                     <h3 class="text-2xl font-bold text-red-500">Library Management System</h3>
                     <p class="text-gray-300 text-base leading-relaxed">
-                        A robust Java Swing desktop application designed for efficient library management. Features include secure multi-role authentication, real-time book inventory tracking, streamlined borrowing and returning processes with admin approval workflows, and comprehensive borrower management, all powered by a MySQL database with jBCrypt for secure password hashing.
+                        A Java-based desktop application for library management, built with Java Swing and FlatLaf. Features secure user authentication with jBCrypt, role-based access control, and MySQL for reliable data storage. Manages books, borrowers, and loan transactions with an intuitive UI, designed for small to medium-sized libraries.
                     </p>
                     <div class="flex flex-wrap gap-2">
                         <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">Java</span>
                         <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">Swing</span>
                         <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">MySQL</span>
-                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">JDBC</span>
-                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">FlatLaf</span>
                         <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">jBCrypt</span>
-                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">Desktop App</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">FlatLaf</span>
                     </div>
                     <div class="pt-3">
                         <a href="https://github.com/ifauzeee/LibraryManagementSystem" 
@@ -988,7 +960,6 @@
                         </a>
                     </div>
                 </div>
-            </div>
             <div class="text-center mt-12 scroll-reveal projects-link">
                 <a href="https://www.linkedin.com/in/muhammad-ibnu-fauzi-66842a2a7/details/projects/" 
                     target="_blank" 
@@ -1003,6 +974,93 @@
                     <span>View All Projects</span>
                     <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform duration-300"></i>
                 </a>
+            </div>
+        </div>
+    </section>
+    <section class="min-h-[80vh] flex flex-col justify-center items-center px-4 py-12 bg-black scroll-reveal">
+        <div class="max-w-6xl w-full">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
+            <span class="name-gradient">My Bots</span>
+            </h2>
+            <div class="max-w-4xl mx-auto scroll-reveal" data-effect="scale">
+            <div class="space-y-5">
+                    <h3 class="text-2xl font-bold text-red-500">Zee Downloader Bot</h3>
+                    <p class="text-gray-300 text-base leading-relaxed">
+                        Bot Telegram serbaguna untuk mengunduh media dari berbagai platform sosial media seperti YouTube, Instagram, Twitter (X), Facebook, dan TikTok. Dibangun dengan Python, menggunakan sistem antrian cerdas untuk stabilitas dan performa maksimal.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
+                        <li>Dukungan multi-platform: Unduh video, audio, foto, dan carousel</li>
+                        <li>Sistem antrian: Proses link berurutan untuk mencegah server overload</li>
+                        <li>Notifikasi tiket: Informasi status permintaan pengguna</li>
+                        <li>Performa 24/7: Berjalan di server dengan PM2</li>
+                        <li>Penanganan grup: Respon cerdas hanya pada pesan berisi link</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">Python</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">python-telegram-bot</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">yt-dlp</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">gallery-dl</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">PM2</span>
+                    </div>
+                    <div class="pt-3">
+                        <a href="https://github.com/ifauzeee/multi-downloader-bot" 
+                           target="_blank" 
+                           class="inline-flex items-center px-5 py-2.5 text-base bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-300 group hover-lift">
+                            <span>View on GitHub</span>
+                            <i class="fas fa-external-link-alt ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                        </a>
+                        <a href="https://t.me/Zeeddlbot" 
+                           target="_blank" 
+                           class="inline-flex items-center px-5 py-2.5 text-base bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-300 group hover-lift ml-4">
+                            <span>Try My Bot</span>
+                            <i class="fas fa-external-link-alt ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="max-w-4xl mx-auto mt-16 scroll-reveal" data-effect="scale">
+                <div class="space-y-5">
+                    <h3 class="text-2xl font-bold text-red-500">WZML-X Mirror Bot</h3>
+                    <p class="text-gray-300 text-base leading-relaxed">
+                        Bot Telegram canggih yang di-fork dari repositori SilentDemonSD/WZML-X dan dikonfigurasi ulang untuk mengunduh dan mengunggah file dari berbagai sumber seperti torrent, Google Drive, Telegram, dan tautan langsung ke Google Drive, Telegram, atau cloud yang didukung RClone. Dibangun dengan Pyrogram dan dijalankan di VPS Debian.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
+                        <li>Mendukung pengunduhan dari torrent, Google Drive, dan tautan langsung</li>
+                        <li>Integrasi RClone untuk unggah ke berbagai cloud storage</li>
+                        <li>Service Accounts untuk mengatasi batas upload Google Drive</li>
+                        <li>Autentikasi yt-dlp dan Aria2c menggunakan file .netrc</li>
+                        <li>Berjalan 24/7 dengan Docker dan PM2 di VPS Debian</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">Python</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">Pyrogram</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">RClone</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">Aria2c</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">Docker</span>
+                        <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full hover:bg-red-500 hover:text-black transition-colors duration-300">PM2</span>
+                    </div>
+                    <div class="pt-3">
+                        <a href="https://github.com/SilentDemonSD/WZML-X" 
+                           target="_blank" 
+                           class="inline-flex items-center px-5 py-2.5 text-base bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-300 group hover-lift">
+                            <span>View on GitHub</span>
+                            <i class="fas fa-external-link-alt ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                        </a>
+                        <a href="https://t.me/Zeemirrorbot" 
+                           target="_blank" 
+                           class="inline-flex items-center px-5 py-2.5 text-base bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-300 group hover-lift ml-4">
+                            <span>Try My Bot</span>
+                            <i class="fas fa-external-link-alt ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                        </a>
+                <div class="text-center mt-12 scroll-reveal projects-link">
+                <a href="https://t.me/RyzeeenUniverse" 
+                    target="_blank" 
+                    class="inline-flex items-center px-5 py-2.5 text-base text-white hover:text-red-500 transition-all duration-300 group hover-lift">
+                    <i class="fab fa-telegram text-lg mr-2"></i>
+                    <span>Join My Telegram Channel for Bot Updates</span>
+                    <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform duration-300"></i>
+                </a>
+                </div>
             </div>
         </div>
     </section>
@@ -1043,7 +1101,8 @@
             </div>
         </div>
     </section>
-    <section class="min-h-[80vh] flex flex-col justify-center items-center text-center px-4 py-12 scroll-reveal thank-you-section">
+    <!-- Thank You Section (no extra spacer, always full screen) -->
+    <section class="min-h-screen flex flex-col justify-center items-center text-center px-4 py-12 scroll-reveal thank-you-section">
         <div class="max-w-4xl mx-auto">
             <h2 class="contact-title">
                 Thank you for <br>
@@ -1092,16 +1151,14 @@
             window.addEventListener('scroll', updateScrollProgress);
             window.addEventListener('resize', updateScrollProgress);
             updateScrollProgress();
-
-            // Loading screen logic
             const loadingScreen = document.getElementById('loading-screen');
             window.addEventListener('load', () => {
-                setTimeout(() => { // Optional: Add a minimum display time for the loading screen
+                setTimeout(() => {
                     loadingScreen.classList.add('hidden');
-                    document.body.style.overflow = 'auto'; // Re-enable scrolling
-                }, 1000); // 1 second delay
+                    document.body.style.overflow = 'auto';
+                }, 1000);
             });
-            document.body.style.overflow = 'hidden'; // Disable scrolling during loading
+            document.body.style.overflow = 'hidden';
         });
     </script>
 </body>
