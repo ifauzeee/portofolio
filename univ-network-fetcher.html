@@ -7,41 +7,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-            background-color: #000000;
-            color: #fff;
-        }
-        .code-block {
-            font-family: 'Fira Code', monospace;
-            background: rgba(255, 0, 0, 0.1);
-            border: 1px solid rgba(255, 0, 0, 0.2);
-            border-radius: 8px;
-            padding: 1rem;
-            overflow-x: auto;
-        }
-        .back-button {
-            position: fixed !important;
-            top: 2rem !important;
-            left: 2rem !important;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(8px);
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-        .back-button:hover {
-            transform: translateY(-2px);
-            color: #FFD700;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="loader.js" defer></script>
+    <script src="theme.js" defer></script>
+    <script src="components.js" defer></script>
 </head>
 <body class="min-h-screen py-20 px-4">
+    <button id="theme-switcher" class="fixed top-5 right-5 z-[1001] bg-gray-800/50 backdrop-blur-sm p-2 rounded-full text-white hover:text-yellow-400 transition-colors duration-300">
+        <i id="sun-icon" class="fas fa-sun"></i>
+        <i id="moon-icon" class="fas fa-moon hidden"></i>
+    </button>
     <a href="index.html" class="back-button text-white hover:text-yellow-500">
+        <i class="fas fa-arrow-left mr-2"></i>
+        <span>Back to Home</span>
     </a>
 
     <div class="max-w-4xl mx-auto">
@@ -50,17 +28,13 @@
                 Universal Network Resource Fetcher
             </span>
         </h1>
-
         <div class="space-y-8">
-            <!-- Project Description -->
             <div class="mb-8">
                 <h2 class="text-2xl font-bold text-red-500 mb-4">About the Project</h2>
                 <p class="text-gray-300 leading-relaxed">
                     A powerful Bash script for network resource fetching, monitoring, and logging, optimized for WSL Kali Linux. This interactive TUI tool combines multiple networking utilities into one comprehensive solution.
                 </p>
             </div>
-
-            <!-- Key Features -->
             <div class="mb-8">
                 <h2 class="text-2xl font-bold text-red-500 mb-4">Key Features</h2>
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -98,8 +72,6 @@
                     </li>
                 </ul>
             </div>
-
-            <!-- Code Preview -->
             <div class="mb-8">
                 <h2 class="text-2xl font-bold text-red-500 mb-4">Code Preview</h2>
                 <pre class="code-block text-sm">
@@ -115,8 +87,6 @@ show_menu() {
     # ... more menu options
 }</code></pre>
             </div>
-
-            <!-- Technologies Used -->
             <div class="mb-8">
                 <h2 class="text-2xl font-bold text-red-500 mb-4">Technologies Used</h2>
                 <div class="flex flex-wrap gap-2">
@@ -127,8 +97,6 @@ show_menu() {
                     <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full">Networking</span>
                 </div>
             </div>
-
-            <!-- Project Links -->
             <div class="flex flex-wrap gap-4">
                 <a href="https://github.com/ifauzeee/Network-Resource-Fetcher" 
                    target="_blank"
@@ -139,5 +107,7 @@ show_menu() {
             </div>
         </div>
     </div>
+    
+    <div id="footer-placeholder"></div>
 </body>
 </html>
