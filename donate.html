@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Muhammad Ibnu Fauzi - Donation Playground</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Muhammad Ibnu Fauzi - Donation Playground</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="loader.js" defer></script>
-    <script src="theme.js" defer></script>
-    <script src="components.js" defer></script>
+    <script src="main.js" defer></script>
 </head>
 <body class="scroll-smooth">
     <button id="theme-switcher" class="fixed top-5 right-5 z-[1001] bg-gray-800/50 backdrop-blur-sm p-2 rounded-full text-white hover:text-yellow-400 transition-colors duration-300">
@@ -23,16 +21,14 @@
         <i class="fas fa-arrow-left mr-2"></i>
         <span>Back to Home</span>
     </a>
-    
-    <div class="scroll-progress"></div>
 
-    <section id="donate" class="min-h-screen flex flex-col justify-center items-center px-4 py-24 bg-black">
-        <div class="max-w-4xl mx-auto scroll-reveal fade-up" data-stagger="true">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6 parallax" data-speed="0.2">
+    <section id="donate" class="min-h-screen flex flex-col justify-center items-center px-4 py-24">
+        <div class="max-w-4xl mx-auto scroll-reveal">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">
                 <span class="name-gradient">Donation Playground</span>
             </h1>
             <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                Just for <span class="highlight-text donate-page">Fun</span>
+                Just for <span class="highlight-text-pulse">Fun</span>
             </h2>
             <p class="text-base md:text-lg text-gray-400 mb-8 scroll-reveal">
                 Welcome to my digital sandbox where I play with code and creativity! If you’re feeling extra awesome and want to toss a virtual coin to my coding adventures, I’d be over the moon!
@@ -40,86 +36,6 @@
         </div>
     </section>
 
-    <section id="why-support" class="min-h-screen flex flex-col justify-center items-center px-4 py-24 bg-black scroll-reveal">
-        <div class="max-w-6xl w-full my-12">
-            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
-                <span class="name-gradient">Why Support?</span>
-            </h2>
-            <div class="fun-card scroll-reveal">
-                <h3 class="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-red-500 mb-6">
-                    Supporting Digital Innovation
-                </h3>
-                <div class="space-y-6">
-                    <p class="text-gray-300 text-lg leading-relaxed">
-                        Welcome to my creative corner of the web! Here, every line of code is crafted with passion and purpose. Your support helps fuel the development of innovative projects and enables me to continue pushing the boundaries of what's possible in web development.
-                    </p>
-                    <p class="text-gray-400 text-base italic">
-                        Together, we can turn creative ideas into reality and make the digital world more exciting. Every contribution, no matter the size, helps maintain this creative momentum. 🚀
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="support-could-do" class="min-h-screen flex flex-col justify-center items-center px-4 py-24 bg-black scroll-reveal">
-        <div class="max-w-6xl w-full my-12">
-            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
-                <span class="name-gradient">What Your Support Could Do</span>
-            </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="support-item scroll-reveal fade-left">
-                    <i class="fas fa-code text-3xl text-red-500 mb-3"></i>
-                    <h3 class="text-lg font-bold text-white mb-2">More Code Magic</h3>
-                    <p class="text-gray-400 text-sm">
-                        Your support could fuel late-night coding sessions, turning wild ideas into epic web creations.
-                    </p>
-                </div>
-                <div class="support-item scroll-reveal fade-up">
-                    <i class="fas fa-lightbulb text-3xl text-red-500 mb-3"></i>
-                    <h3 class="text-lg font-bold text-white mb-2">New Ideas</h3>
-                    <p class="text-gray-400 text-sm">
-                        A little boost might spark the next big project or a fun easter egg for my portfolio.
-                    </p>
-                </div>
-                <div class="support-item scroll-reveal fade-right">
-                    <i class="fas fa-smile text-3xl text-red-500 mb-3"></i>
-                    <h3 class="text-lg font-bold text-white mb-2">Spread the Joy</h3>
-                    <p class="text-gray-400 text-sm">
-                        Your donation keeps the good vibes going, inspiring me to share more with the community.
-                    </p>
-                </div>
-            </div>
-            <div class="text-center mt-12 scroll-reveal">
-                <a href="qris.html" class="donate-button inline-flex items-center justify-center">
-                    <i class="fas fa-qrcode mr-2"></i>
-                    <span>Scan QRIS Here</span>
-                </a>
-            </div>
-        </div>
-    </section>
-    
     <div id="footer-placeholder"></div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const scrollProgress = document.querySelector('.scroll-progress');
-            function updateScrollProgress() {
-                const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
-                const scrolled = (window.scrollY / windowHeight) * 100;
-                scrollProgress.style.transform = `scaleX(${scrolled / 100})`;
-            }
-            const revealElements = document.querySelectorAll('.scroll-reveal');
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-            revealElements.forEach((el) => observer.observe(el));
-            window.addEventListener('scroll', updateScrollProgress);
-        });
-    </script>
 </body>
 </html>

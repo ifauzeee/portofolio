@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Universal Network Resource Fetcher - Project Details</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universal Network Resource Fetcher - Project Details</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="loader.js" defer></script>
-    <script src="theme.js" defer></script>
-    <script src="components.js" defer></script>
+    <script src="main.js" defer></script>
 </head>
 <body class="min-h-screen py-20 px-4">
     <button id="theme-switcher" class="fixed top-5 right-5 z-[1001] bg-gray-800/50 backdrop-blur-sm p-2 rounded-full text-white hover:text-yellow-400 transition-colors duration-300">
@@ -23,90 +21,7 @@
     </a>
 
     <div class="max-w-4xl mx-auto">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6">
-            <span class="bg-gradient-to-r from-red-500 to-yellow-500 text-transparent bg-clip-text">
-                Universal Network Resource Fetcher
-            </span>
-        </h1>
-        <div class="space-y-8">
-            <div class="mb-8">
-                <h2 class="text-2xl font-bold text-red-500 mb-4">About the Project</h2>
-                <p class="text-gray-300 leading-relaxed">
-                    A powerful Bash script for network resource fetching, monitoring, and logging, optimized for WSL Kali Linux. This interactive TUI tool combines multiple networking utilities into one comprehensive solution.
-                </p>
-            </div>
-            <div class="mb-8">
-                <h2 class="text-2xl font-bold text-red-500 mb-4">Key Features</h2>
-                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <li class="flex items-start space-x-2">
-                        <i class="fas fa-check text-red-500 mt-1"></i>
-                        <span class="text-gray-300">File downloading with URL support</span>
-                    </li>
-                    <li class="flex items-start space-x-2">
-                        <i class="fas fa-check text-red-500 mt-1"></i>
-                        <span class="text-gray-300">Public IP address checking</span>
-                    </li>
-                    <li class="flex items-start space-x-2">
-                        <i class="fas fa-check text-red-500 mt-1"></i>
-                        <span class="text-gray-300">Network interface monitoring</span>
-                    </li>
-                    <li class="flex items-start space-x-2">
-                        <i class="fas fa-check text-red-500 mt-1"></i>
-                        <span class="text-gray-300">Latency testing capabilities</span>
-                    </li>
-                    <li class="flex items-start space-x-2">
-                        <i class="fas fa-check text-red-500 mt-1"></i>
-                        <span class="text-gray-300">Port scanning functionality</span>
-                    </li>
-                    <li class="flex items-start space-x-2">
-                        <i class="fas fa-check text-red-500 mt-1"></i>
-                        <span class="text-gray-300">Google Drive direct link generation</span>
-                    </li>
-                    <li class="flex items-start space-x-2">
-                        <i class="fas fa-check text-red-500 mt-1"></i>
-                        <span class="text-gray-300">Traceroute implementation</span>
-                    </li>
-                    <li class="flex items-start space-x-2">
-                        <i class="fas fa-check text-red-500 mt-1"></i>
-                        <span class="text-gray-300">YouTube video downloading</span>
-                    </li>
-                </ul>
-            </div>
-            <div class="mb-8">
-                <h2 class="text-2xl font-bold text-red-500 mb-4">Code Preview</h2>
-                <pre class="code-block text-sm">
-<code>#!/bin/bash
-# Universal Network Resource Fetcher
-# A comprehensive network utility tool
-
-show_menu() {
-    echo "=== Universal Network Resource Fetcher ==="
-    echo "1. Unduh File dari URL"
-    echo "2. Cek IP Publik"
-    echo "3. Pantau Status Antarmuka Jaringan"
-    # ... more menu options
-}</code></pre>
-            </div>
-            <div class="mb-8">
-                <h2 class="text-2xl font-bold text-red-500 mb-4">Technologies Used</h2>
-                <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full">Shell Script</span>
-                    <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full">Bash</span>
-                    <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full">Linux</span>
-                    <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full">WSL</span>
-                    <span class="px-3 py-1.5 text-sm text-red-500 border border-red-500 rounded-full">Networking</span>
-                </div>
-            </div>
-            <div class="flex flex-wrap gap-4">
-                <a href="https://github.com/ifauzeee/Network-Resource-Fetcher" 
-                   target="_blank"
-                   class="inline-flex items-center px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-300">
-                    <i class="fab fa-github mr-2"></i>
-                    View on GitHub
-                </a>
-            </div>
         </div>
-    </div>
     
     <div id="footer-placeholder"></div>
 </body>
